@@ -1,0 +1,44 @@
+﻿Build started 9/15/2014 4:19:21 PM.
+     1>Project "C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Base\Base.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Errors.cpp GLSLProgram.cpp GLTexture.h ImageLoader.cpp IOManager.cpp main.cpp MainGame.cpp picoPNG.cpp ResourceManager.cpp Sprite.cpp TextureCache.cpp
+         TextureCache.cpp
+         Sprite.cpp
+         ResourceManager.cpp
+         picoPNG.cpp
+         MainGame.cpp
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\maingame.cpp(95): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\maingame.cpp(98): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\maingame.cpp(150): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\maingame.cpp(171): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\maingame.cpp(174): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+         main.cpp
+         IOManager.cpp
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\iomanager.cpp(16): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'int', possible loss of data
+     1>c:\users\zephyr\skydrive (2)\documents\c++\ben\boxtests - copy\base\iomanager.cpp(20): warning C4244: '-=' : conversion from 'std::streamoff' to 'int', possible loss of data
+         ImageLoader.cpp
+         GLTexture.h
+         GLSLProgram.cpp
+         Errors.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Debug\Base.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\lib glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Debug\Base.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Debug\Base.lib" /MACHINE:X86 Debug\Errors.obj
+         Debug\GLSLProgram.obj
+         Debug\GLTexture.obj
+         Debug\ImageLoader.obj
+         Debug\IOManager.obj
+         Debug\main.obj
+         Debug\MainGame.obj
+         Debug\picoPNG.obj
+         Debug\ResourceManager.obj
+         Debug\Sprite.obj
+         Debug\TextureCache.obj
+         LINK : C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Debug\Base.exe not found or not built by the last incremental link; performing full link
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Base.vcxproj -> C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Debug\Base.exe
+     1>Done Building Project "C:\Users\zephyr\SkyDrive (2)\Documents\C++\ben\BoxTests - Copy\Base\Base.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.64
