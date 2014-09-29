@@ -1,22 +1,14 @@
-﻿Build started 9/23/2014 10:22:16 AM.
+﻿Build started 9/29/2014 11:38:25 AM.
      1>Project "C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Base\Base.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp MainGame.cpp
-         MainGame.cpp
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\base\maingame.cpp(70): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\base\maingame.cpp(73): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\base\maingame.cpp(125): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\base\maingame.cpp(146): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\base\maingame.cpp(149): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Debug\Game.exe" /INCREMENTAL /NOLOGO glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib Bengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Debug\Game.lib" /MACHINE:X86 Debug\main.obj
          Debug\MainGame.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          Base.vcxproj -> C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Debug\Game.exe
      1>Done Building Project "C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Base\Base.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.57
+Time Elapsed 00:00:02.96
