@@ -8,6 +8,7 @@
 #include <Bengine/Sprite.h>
 #include <Bengine/GLTexture.h>
 #include <Bengine/Window.h>
+#include <Bengine/Camera2D.h>
 
 #include <vector>
 
@@ -38,6 +39,7 @@ private:
     std::vector<Bengine::Sprite*> _sprites;
 
     Bengine::GLSLProgram _colorProgram;
+	Bengine::Camera2D _camera;
 
 	float _fps;
 	float _maxFPS;
