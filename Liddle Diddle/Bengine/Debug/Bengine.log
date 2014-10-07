@@ -1,23 +1,13 @@
-﻿Build started 9/30/2014 11:07:13 AM.
-     1>Project "C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 10/6/2014 9:22:20 PM.
+     1>Project "C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Bengine.cpp Camera2D.cpp Errors.cpp GLSLProgram.cpp ImageLoader.cpp IOManager.cpp picoPNG.cpp ResourceManager.cpp Sprite.cpp TextureCache.cpp Window.cpp
-         Window.cpp
-         TextureCache.cpp
-         Sprite.cpp
-         ResourceManager.cpp
-         picoPNG.cpp
-         IOManager.cpp
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\bengine\iomanager.cpp(19): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'int', possible loss of data
-     1>c:\users\zephyr\documents\github\3rd-semester-final\liddle diddle\bengine\iomanager.cpp(23): warning C4244: '-=' : conversion from 'std::streamoff' to 'int', possible loss of data
-         ImageLoader.cpp
-         GLSLProgram.cpp
-         Errors.cpp
-         Camera2D.cpp
-         Bengine.cpp
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt SpriteBatch.cpp
+         SpriteBatch.cpp
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(25): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(67): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(101): warning C4018: '<' : signed/unsigned mismatch
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Debug\Bengine.lib" glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib /NOLOGO Debug\Bengine.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Bengine.lib" /NOLOGO Debug\Bengine.obj
          Debug\Camera2D.obj
          Debug\Errors.obj
          Debug\GLSLProgram.obj
@@ -26,22 +16,12 @@
          Debug\picoPNG.obj
          Debug\ResourceManager.obj
          Debug\Sprite.obj
+         Debug\SpriteBatch.obj
          Debug\TextureCache.obj
          Debug\Window.obj
-     1>glew32s.lib(glew.obj) : warning LNK4006: _glewGetErrorString@4 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>glew32s.lib(glew.obj) : warning LNK4006: _glewGetExtension@4 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>glew32s.lib(glew.obj) : warning LNK4006: _glewGetString@4 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>glew32s.lib(glew.obj) : warning LNK4006: _glewInit@0 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>glew32s.lib(glew.obj) : warning LNK4006: _glewIsSupported@4 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>glew32s.lib(glew.obj) : warning LNK4006: _wglewGetExtension@4 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>glew32s.lib(glew.obj) : warning LNK4006: _wglewIsSupported@4 already defined in glew32.lib(glew32.dll); second definition ignored
-     1>SDL2.lib(SDL2.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in glew32.lib(glew32.dll); second definition ignored
-     1>SDL2.lib(SDL2.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-     1>OpenGL32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in glew32.lib(glew32.dll); second definition ignored
-     1>OpenGL32.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-         Bengine.vcxproj -> C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Debug\Bengine.lib
-     1>Done Building Project "C:\Users\Zephyr\Documents\GitHub\3rd-Semester-Final\Liddle Diddle\Bengine\Bengine.vcxproj" (Rebuild target(s)).
+         Bengine.vcxproj -> C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Bengine.lib
+     1>Done Building Project "C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Bengine\Bengine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.67
+Time Elapsed 00:00:00.59
