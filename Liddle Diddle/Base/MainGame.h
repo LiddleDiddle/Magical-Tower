@@ -1,13 +1,15 @@
 #pragma once
 
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 #include <GL/glew.h>
 
 #include <Bengine/Bengine.h>
 #include <Bengine/GLSLProgram.h>
-#include <Bengine/Sprite.h>
 #include <Bengine/GLTexture.h>
+#include <Bengine/Sprite.h>
 #include <Bengine/Window.h>
+#include <Bengine/InputManager.h>
+#include <Bengine/Timing.h>
 
 #include <Bengine/SpriteBatch.h>
 
@@ -15,9 +17,9 @@
 
 #include <vector>
 
-
 enum class GameState {PLAY, EXIT};
 
+//Our example game class, just for testing purposes right now
 class MainGame
 {
 public:
@@ -32,7 +34,6 @@ private:
     void gameLoop();
     void processInput();
     void drawGame();
-	void calculateFPS();
 
     Bengine::Window _window;
     int _screenWidth;
@@ -40,14 +41,15 @@ private:
     GameState _gameState;
 
     Bengine::GLSLProgram _colorProgram;
-	Bengine::Camera2D _camera;
+    Bengine::Camera2D _camera;
 
-	Bengine::SpriteBatch _spriteBatch;
+    Bengine::SpriteBatch _spriteBatch;
 
-	float _fps;
-	float _maxFPS;
-	float _frameTime;
-
+    Bengine::InputManager _inputManager;
+    Bengine::FpsLimiter _fpsLimiter;
+    
+    float _maxFPS;
+    float _fps;
     float _time;
 };
 
