@@ -142,8 +142,8 @@ void MainGame::drawGame() {
     glUniform1i(textureLocation, 0);
 
     //Set the constantly changing time variable
-    GLint timeLocation = _colorProgram.getUniformLocation("time");
-    glUniform1f(timeLocation, _time);
+    //GLint timeLocation = _colorProgram.getUniformLocation("time");
+    //glUniform1f(timeLocation, _time);
 
     //Set the camera matrix
     GLint pLocation = _colorProgram.getUniformLocation("P");
@@ -155,7 +155,7 @@ void MainGame::drawGame() {
 
     glm::vec4 pos(0.0f, 0.0f, 50.0f, 50.0f);
     glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-    static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/star.png");
+    static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/manaDrop00.png");
     Bengine::Color color;
     color.r = 255;
     color.g = 255;
@@ -163,7 +163,6 @@ void MainGame::drawGame() {
     color.a = 255;
 
     _spriteBatch.draw(pos, uv, texture.id, 0.0f, color);
-    _spriteBatch.draw(pos + glm::vec4(50, 0, 0, 0), uv, texture.id, 0.0f, color);
 
     _spriteBatch.end();
 

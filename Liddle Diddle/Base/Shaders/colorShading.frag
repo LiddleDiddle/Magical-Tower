@@ -20,7 +20,5 @@ void main() {
     vec4 textureColor = texture(mySampler, fragmentUV);
     
     //Make crazy colors using time and position!
-    color = vec4(fragmentColor.r * (cos(fragmentPosition.x * 4.0 + time) + 1.0) * 0.5,
-                 fragmentColor.g * (cos(fragmentPosition.y * 8.0 + time) + 1.0) * 0.5,
-                 fragmentColor.b * (cos(fragmentPosition.x * 2.0 + time) + 1.0) * 0.5, fragmentColor.a) * textureColor;
+    color = textureColor * fragmentColor;
 }

@@ -1,11 +1,8 @@
-﻿Build started 10/10/2014 9:01:45 PM.
+﻿Build started 10/11/2014 5:10:26 PM.
      1>Project "C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Timing.cpp
-         Timing.cpp
-     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\timing.cpp(24): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\timing.cpp(41): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\timing.cpp(44): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ImageLoader.cpp
+         ImageLoader.cpp
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Bengine.lib" /NOLOGO Debug\Bengine.obj
          Debug\Camera2D.obj
@@ -26,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.24
+Time Elapsed 00:00:00.83
