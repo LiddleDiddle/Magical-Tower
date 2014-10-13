@@ -20,5 +20,5 @@ void main() {
     vec4 textureColor = texture(mySampler, fragmentUV);
     
     //Make crazy colors using time and position!
-    color = textureColor * fragmentColor;
+    gl_FragColor = textureColor;
 }

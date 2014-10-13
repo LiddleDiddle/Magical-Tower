@@ -7,8 +7,8 @@
 
 //Constructor, just initializes private member variables
 MainGame::MainGame() : 
-    _screenWidth(1024),
-    _screenHeight(768), 
+    _screenWidth(1920),
+    _screenHeight(1080), 
     _time(0.0f),
     _gameState(GameState::PLAY),
     _maxFPS(60.0f)
@@ -41,6 +41,7 @@ void MainGame::initSystems() {
 
     _spriteBatch.init();
     _fpsLimiter.init(_maxFPS);
+	_camera.setPosition(glm::vec2(960,540));
 }
 
 void MainGame::initShaders() {
@@ -82,7 +83,7 @@ void MainGame::gameLoop() {
 void MainGame::processInput() {
     SDL_Event evnt;
 
-    const float CAMERA_SPEED = 2.0f;
+    const float CAMERA_SPEED = 4.0f;
     const float SCALE_SPEED = 0.1f;
 
     //Will keep looping until there are no more events to process
@@ -153,9 +154,12 @@ void MainGame::drawGame() {
 
     _spriteBatch.begin();
 
-    glm::vec4 pos(0.0f, 0.0f, 50.0f, 50.0f);
+    glm::vec4 pos(0.0f, 0.0f, 1920.0f, 1080.0f);
+	glm::vec4 pos1(0.0f, 0.0f, 1080.0f, 1080.0f);
     glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-    static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/manaDrop00.png");
+    static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/glass.png");
+	static Bengine::GLTexture texture1 = Bengine::ResourceManager::getTexture("Textures/words.png");
+	static Bengine::GLTexture texture2 = Bengine::ResourceManager::getTexture("Textures/highlight.png");
     Bengine::Color color;
     color.r = 255;
     color.g = 255;
@@ -163,7 +167,8 @@ void MainGame::drawGame() {
     color.a = 255;
 
     _spriteBatch.draw(pos, uv, texture.id, 0.0f, color);
-
+	_spriteBatch.draw(pos, uv, texture1.id, 0.0f, color);
+	_spriteBatch.draw(glm::vec4(1416.0f,864.0f,504.0f,72.0f), uv, texture2.id, 0.0f, color);
     _spriteBatch.end();
 
     _spriteBatch.renderBatch();
