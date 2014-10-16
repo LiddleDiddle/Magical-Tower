@@ -5,16 +5,20 @@
 
 namespace Bengine
 {
-
+	//camera class for 2d games
 	class Camera2D
 	{
 	public:
 		Camera2D(void);
 		~Camera2D(void);
 
+		//sets up the orthographic matrix and screen dimensions
 		void init(int screenWidth, int screenHeight);
 
+		//updates the camera matrix if needed
 		void update();
+
+		glm::vec2 convertScreenToWorld(glm::vec2 screenCoords);
 
 		//setters
 		void setPosition(glm::vec2& newPosition) { _position = newPosition;  _needsMatrixUpdate = true; }

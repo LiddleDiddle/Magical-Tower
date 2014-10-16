@@ -7,8 +7,8 @@
 
 //Constructor, just initializes private member variables
 MainGame::MainGame() : 
-    _screenWidth(1920),
-    _screenHeight(1080), 
+    _screenWidth(1280),
+    _screenHeight(720), 
     _time(0.0f),
     _gameState(GameState::PLAY),
     _maxFPS(60.0f)
@@ -41,7 +41,7 @@ void MainGame::initSystems() {
 
     _spriteBatch.init();
     _fpsLimiter.init(_maxFPS);
-	_camera.setPosition(glm::vec2(960,540));
+	_camera.setPosition(glm::vec2(_screenWidth / 2, _screenHeight / 2));
 }
 
 void MainGame::initShaders() {
@@ -65,6 +65,16 @@ void MainGame::gameLoop() {
 
         _camera.update();
 
+		//increment all bullets
+		for (int i = 0; i < _bullets.size(); i){
+			if(_bullets[i].update() == true){
+				_bullets[i] = _bullets.back();
+				_bullets.pop_back();
+			} else {
+				i++;
+			}
+		}
+
         drawGame();
 
         _fps = _fpsLimiter.end();
@@ -72,7 +82,7 @@ void MainGame::gameLoop() {
         //print only once every 10 frames
         static int frameCounter = 0;
         frameCounter++;
-        if (frameCounter == 10) {
+        if (frameCounter == 60) {
             std::cout << _fps << std::endl;
             frameCounter = 0;
         }
@@ -93,7 +103,7 @@ void MainGame::processInput() {
                 _gameState = GameState::EXIT;
                 break;
             case SDL_MOUSEMOTION:
-                //std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
+                _inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
                 break;
             case SDL_KEYDOWN:
                 _inputManager.pressKey(evnt.key.keysym.sym);
@@ -101,6 +111,12 @@ void MainGame::processInput() {
             case SDL_KEYUP:
                 _inputManager.releaseKey(evnt.key.keysym.sym);
                 break;
+			case SDL_MOUSEBUTTONDOWN:
+				_inputManager.pressKey(evnt.button.button);
+				break;
+			case SDL_MOUSEBUTTONUP:
+				_inputManager.releaseKey(evnt.button.button);
+				break;
         }
     }
 
@@ -122,6 +138,16 @@ void MainGame::processInput() {
     if (_inputManager.isKeyPressed(SDLK_e)) {
         _camera.setScale(_camera.getScale() - SCALE_SPEED);
     }
+	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
+		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
+		mouseCoords = _camera.convertScreenToWorld(mouseCoords);
+
+		glm::vec2 playerPosition(0.0f);
+		glm::vec2 direction = mouseCoords - playerPosition;
+		direction = glm::normalize(direction);
+
+		_bullets.emplace_back(glm::vec2(0.0f,0.0f), direction, 5, 1000);
+	}
 }
 
 //Draws the game using the almighty OpenGL
@@ -142,10 +168,6 @@ void MainGame::drawGame() {
     //Tell the shader that the texture is in texture unit 0
     glUniform1i(textureLocation, 0);
 
-    //Set the constantly changing time variable
-    //GLint timeLocation = _colorProgram.getUniformLocation("time");
-    //glUniform1f(timeLocation, _time);
-
     //Set the camera matrix
     GLint pLocation = _colorProgram.getUniformLocation("P");
     glm::mat4 cameraMatrix = _camera.getCameraMatrix();
@@ -154,9 +176,10 @@ void MainGame::drawGame() {
 
     _spriteBatch.begin();
 
-    glm::vec4 pos(0.0f, 0.0f, 1920.0f, 1080.0f);
-	glm::vec4 pos1(0.0f, 0.0f, 1080.0f, 1080.0f);
+    glm::vec4 pos(0.0f, 0.0f, _screenWidth, _screenHeight);
+	glm::vec4 pos1(0.0f, 0.0f, _screenWidth, _screenHeight);
     glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
+	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/spook.png");
     static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/glass.png");
 	static Bengine::GLTexture texture1 = Bengine::ResourceManager::getTexture("Textures/words.png");
 	static Bengine::GLTexture texture2 = Bengine::ResourceManager::getTexture("Textures/highlight.png");
@@ -166,9 +189,16 @@ void MainGame::drawGame() {
     color.b = 255;
     color.a = 255;
 
+	_spriteBatch.draw(pos, uv, spook.id, 0.0f, color);
     _spriteBatch.draw(pos, uv, texture.id, 0.0f, color);
 	_spriteBatch.draw(pos, uv, texture1.id, 0.0f, color);
 	_spriteBatch.draw(glm::vec4(1416.0f,864.0f,504.0f,72.0f), uv, texture2.id, 0.0f, color);
+
+	for (int i = 0; i < _bullets.size(); i++)
+	{
+		_bullets[i].draw(_spriteBatch);
+	}
+
     _spriteBatch.end();
 
     _spriteBatch.renderBatch();
