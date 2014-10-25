@@ -1,8 +1,12 @@
-﻿Build started 10/15/2014 9:06:26 PM.
+﻿Build started 10/25/2014 11:26:32 AM.
      1>Project "C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Camera2D.cpp
-         Camera2D.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt SpriteBatch.cpp
+         SpriteBatch.cpp
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(8): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\3rd-semester-final\liddle diddle\bengine\spritebatch.cpp(112): warning C4018: '<' : signed/unsigned mismatch
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Bengine.lib" /NOLOGO Debug\Bengine.obj
          Debug\Camera2D.obj
@@ -23,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.47
+Time Elapsed 00:00:00.93

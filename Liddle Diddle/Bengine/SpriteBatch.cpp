@@ -1,8 +1,11 @@
-#include "SpriteBatch.h"
 
+#include "SpriteBatch.h"
+#include <iostream>
 #include <algorithm>
 
 namespace Bengine {
+
+const float PI = 3.14159265;
 
 SpriteBatch::SpriteBatch() : _vbo(0), _vao(0)
 {
@@ -33,26 +36,35 @@ void SpriteBatch::end() {
     createRenderBatches();
 }
 
-void SpriteBatch::draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color) {
+void SpriteBatch::draw(const glm::vec4& destRect, float rotation, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color) {
 
-    Glyph* newGlyph = new Glyph;
+	Glyph* newGlyph = new Glyph;
     newGlyph->texture = texture;
     newGlyph->depth = depth;
 
+	//tl bl br tr
+	glm::vec2 verts[4] = { glm::vec2(-destRect.z/2,destRect.w/2), glm::vec2(-destRect.z/2,-destRect.w/2), glm::vec2(destRect.z/2,-destRect.w/2), glm::vec2(destRect.z/2,destRect.w/2) };
+	glm::mat2 rotationMatrix(cos(rotation*PI/180),-sin(rotation*PI/180),sin(rotation*PI/180),cos(rotation*PI/180));
+
+	for (int i = 0; i < 4; i++)
+	{
+		verts[i] = rotationMatrix * verts[i];
+	}
+
     newGlyph->topLeft.color = color;
-    newGlyph->topLeft.setPosition(destRect.x, destRect.y + destRect.w);
+    newGlyph->topLeft.setPosition(verts[0].x + destRect.x, verts[0].y + destRect.y);
     newGlyph->topLeft.setUV(uvRect.x, uvRect.y + uvRect.w);
 
     newGlyph->bottomLeft.color = color;
-    newGlyph->bottomLeft.setPosition(destRect.x, destRect.y);
+    newGlyph->bottomLeft.setPosition(verts[1].x + destRect.x, verts[1].y + destRect.y);
     newGlyph->bottomLeft.setUV(uvRect.x, uvRect.y);
 
     newGlyph->bottomRight.color = color;
-    newGlyph->bottomRight.setPosition(destRect.x + destRect.z, destRect.y);
+    newGlyph->bottomRight.setPosition(verts[2].x + destRect.x, verts[2].y + destRect.y);
     newGlyph->bottomRight.setUV(uvRect.x + uvRect.z, uvRect.y);
 
     newGlyph->topRight.color = color;
-    newGlyph->topRight.setPosition(destRect.x + destRect.z, destRect.y + destRect.w);
+    newGlyph->topRight.setPosition(verts[3].x + destRect.x, verts[3].y + destRect.y);
     newGlyph->topRight.setUV(uvRect.x + uvRect.z, uvRect.y + uvRect.w);
 
     _glyphs.push_back(newGlyph);
@@ -66,7 +78,6 @@ void SpriteBatch::renderBatch() {
 
     for (int i = 0; i < _renderBatches.size(); i++) {
         glBindTexture(GL_TEXTURE_2D, _renderBatches[i].texture);
-
         glDrawArrays(GL_TRIANGLES, _renderBatches[i].offset, _renderBatches[i].numVertices);
     }
 

@@ -52,5 +52,6 @@ private:
     float _maxFPS;
     float _fps;
     float _time;
+	float _rotation;
 };
 

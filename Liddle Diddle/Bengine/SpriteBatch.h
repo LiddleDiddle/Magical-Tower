@@ -47,14 +47,14 @@ public:
 	void begin(GlyphSortType sortType = GlyphSortType::TEXTURE);
 	void end();
 
-	void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color);
+	void draw(const glm::vec4& destRect, float rotation, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color);
 
 	void renderBatch();
 private:
 	void createRenderBatches();
 	void createVertexArray();
 	void sortGlyphs();
-
+	
 
 	static bool compareFrontToBack(Glyph* a, Glyph* b);
 	static bool compareBackToFront(Glyph* a, Glyph* b);

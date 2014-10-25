@@ -25,7 +25,7 @@ void Bullet::draw(Bengine::SpriteBatch& spriteBatch){
 
 	glm::vec4 rectangle = glm::vec4(_position.x,_position.y,100,100);
 
-	spriteBatch.draw(rectangle, uv, spook.id, 0.0f, color);
+	spriteBatch.draw(rectangle, 0, uv, spook.id, 0.0f, color);
 }
 
 bool Bullet::update(){

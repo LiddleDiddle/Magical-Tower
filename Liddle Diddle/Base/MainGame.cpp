@@ -11,7 +11,8 @@ MainGame::MainGame() :
     _screenHeight(720), 
     _time(0.0f),
     _gameState(GameState::PLAY),
-    _maxFPS(60.0f)
+    _maxFPS(60.0f),
+	_rotation(0.0f)
 {
     _camera.init(_screenWidth, _screenHeight);
 }
@@ -176,23 +177,17 @@ void MainGame::drawGame() {
 
     _spriteBatch.begin();
 
-    glm::vec4 pos(0.0f, 0.0f, _screenWidth, _screenHeight);
+    glm::vec4 pos(_screenWidth/2, _screenHeight/2, _screenWidth, _screenHeight);
 	glm::vec4 pos1(0.0f, 0.0f, _screenWidth, _screenHeight);
     glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/spook.png");
-    static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/glass.png");
-	static Bengine::GLTexture texture1 = Bengine::ResourceManager::getTexture("Textures/words.png");
-	static Bengine::GLTexture texture2 = Bengine::ResourceManager::getTexture("Textures/highlight.png");
     Bengine::Color color;
     color.r = 255;
     color.g = 255;
     color.b = 255;
     color.a = 255;
 
-	_spriteBatch.draw(pos, uv, spook.id, 0.0f, color);
-    _spriteBatch.draw(pos, uv, texture.id, 0.0f, color);
-	_spriteBatch.draw(pos, uv, texture1.id, 0.0f, color);
-	_spriteBatch.draw(glm::vec4(1416.0f,864.0f,504.0f,72.0f), uv, texture2.id, 0.0f, color);
+	_spriteBatch.draw(pos,_rotation++, uv, spook.id, 0.0f, color);
 
 	for (int i = 0; i < _bullets.size(); i++)
 	{
