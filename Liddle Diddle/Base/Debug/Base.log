@@ -1,17 +1,118 @@
-﻿Build started 10/25/2014 11:26:59 AM.
-     1>Project "C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Base\Base.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/27/2014 5:57:16 PM.
+     1>Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" on node 2 (Build target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Bullet.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Bullet.cpp main.cpp MainGame.cpp
+         MainGame.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(65): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(70): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(107): warning C4244: 'argument' : conversion from 'Sint32' to 'float', possible loss of data
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(192): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0(617): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0(751) : see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,glm::detail::tvec2<T,P>,glm::vec2&,int,int>(_Objty *,_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Ty=Bullet,
+                     _Objty=Bullet,
+                     T=float,
+                     P=0,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0(751) : see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,glm::detail::tvec2<T,P>,glm::vec2&,int,int>(_Objty *,_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Ty=Bullet,
+                     _Objty=Bullet,
+                     T=float,
+                     P=0,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0(903) : see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,glm::detail::tvec2<T,P>,glm::vec2&,int,int>(std::allocator<_Ty> &,_Objty *,_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Alloc=std::allocator<Bullet>,
+                     _Ty=Bullet,
+                     T=float,
+                     P=0,
+                     _Objty=Bullet,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0(903) : see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,glm::detail::tvec2<T,P>,glm::vec2&,int,int>(std::allocator<_Ty> &,_Objty *,_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Alloc=std::allocator<Bullet>,
+                     _Ty=Bullet,
+                     T=float,
+                     P=0,
+                     _Objty=Bullet,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector(894) : see reference to function template instantiation 'void std::_Wrap_alloc<_Alloc>::construct<Bullet,_Ty,glm::vec2&,int,int>(Bullet *,_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Alloc=std::allocator<Bullet>,
+                     _Ty=glm::detail::tvec2<float,0>,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector(894) : see reference to function template instantiation 'void std::_Wrap_alloc<_Alloc>::construct<Bullet,_Ty,glm::vec2&,int,int>(Bullet *,_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Alloc=std::allocator<Bullet>,
+                     _Ty=glm::detail::tvec2<float,0>,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(150) : see reference to function template instantiation 'void std::vector<_Ty>::emplace_back<glm::detail::tvec2<T,P>,glm::vec2&,int,int>(_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Ty=Bullet,
+                     T=float,
+                     P=0,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+                 c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(150) : see reference to function template instantiation 'void std::vector<_Ty>::emplace_back<glm::detail::tvec2<T,P>,glm::vec2&,int,int>(_V0_t &&,_V1_t,_V2_t &&,_V3_t &&)' being compiled
+                 with
+                 [
+                     _Ty=Bullet,
+                     T=float,
+                     P=0,
+                     _V0_t=glm::detail::tvec2<float,0>,
+                     _V1_t=glm::vec2 &,
+                     _V2_t=int,
+                     _V3_t=int
+                 ]
+         main.cpp
          Bullet.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Game.exe" /INCREMENTAL /NOLOGO glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib Bengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Game.lib" /MACHINE:X86 Debug\Bullet.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.exe" /INCREMENTAL /NOLOGO glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib Bengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.lib" /MACHINE:X86 Debug\Bullet.obj
          Debug\main.obj
          Debug\MainGame.obj
+         LINK : C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.exe not found or not built by the last incremental link; performing full link
      1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
-         Base.vcxproj -> C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Debug\Game.exe
-     1>Done Building Project "C:\Users\Zephyr\Desktop\3rd-Semester-Final\Liddle Diddle\Base\Base.vcxproj" (Build target(s)).
+         Base.vcxproj -> C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.exe
+     1>Done Building Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.53
+Time Elapsed 00:00:03.51
