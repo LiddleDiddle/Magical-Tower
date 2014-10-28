@@ -88,12 +88,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="DefaultGameStateManager.cpp" />
+    <ClCompile Include="Drawable.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateManager.cpp" />
+    <ClCompile Include="GameStateProvider.cpp" />
+    <ClCompile Include="IntroGameState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="MainMenuGameState.cpp" />
+    <ClCompile Include="Modality.cpp" />
+    <ClCompile Include="Updateable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="DefaultGameStateManager.h" />
+    <ClInclude Include="Drawable.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="GameStateProvider.h" />
+    <ClInclude Include="IntroGameState.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="MainMenuGameState.h" />
+    <ClInclude Include="Modality.h" />
+    <ClInclude Include="Updateable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -55,4 +55,9 @@ namespace Bengine
 		return screenCoords;
 	}
 
+	glm::vec2 Camera2D::getScreenDimensions()
+	{
+		return glm::vec2(_screenWidth,_screenHeight);
+	}
+
 }

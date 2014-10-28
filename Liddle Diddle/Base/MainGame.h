@@ -13,10 +13,12 @@
 #include <Bengine/SpriteBatch.h>
 #include <Bengine/Camera2D.h>
 #include "Bullet.h"
+#include "GameStateManager.h"
+#include "DefaultGameStateManager.h"
 
 #include <vector>
 
-enum class GameState {PLAY, EXIT};
+enum class GameMode {PLAY, EXIT};
 
 //Our example game class, just for testing purposes right now
 class MainGame
@@ -26,7 +28,7 @@ public:
     ~MainGame();
 
     void run();
-
+	glm::vec2 getScreenDimensions() { return glm::vec2(_screenWidth, _screenHeight); };
 private:
     void initSystems();
     void initShaders();
@@ -39,7 +41,7 @@ private:
     int _screenWidth;
     int _screenHeight;
 
-    GameState _gameState;
+    GameMode _gameMode;
 
     Bengine::GLSLProgram _colorProgram;
     Bengine::Camera2D _camera;
@@ -53,5 +55,6 @@ private:
     float _fps;
     float _time;
 	float _rotation;
+	std::shared_ptr<DefaultGameStateManager> gameStateManager;
 };
 
