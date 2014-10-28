@@ -4,15 +4,16 @@
 
 #include <iostream>
 #include <string>
-
+#include "IntroGameState.h"
 //Constructor, just initializes private member variables
 MainGame::MainGame() : 
     _screenWidth(1280),
     _screenHeight(720), 
     _time(0.0f),
-    _gameState(GameState::PLAY),
+    _gameMode(GameMode::PLAY),
     _maxFPS(60.0f),
-	_rotation(0.0f)
+	_rotation(0.0f),
+	gameStateManager(std::make_shared<DefaultGameStateManager>())
 {
     _camera.init(_screenWidth, _screenHeight);
 }
@@ -43,6 +44,10 @@ void MainGame::initSystems() {
     _spriteBatch.init();
     _fpsLimiter.init(_maxFPS);
 	_camera.setPosition(glm::vec2(_screenWidth / 2, _screenHeight / 2));
+
+	// Set the initial game state the game will use after it has started
+	std::cout << "*** Pushing intro game state onto the stack ***" << std::endl;
+	gameStateManager->Push(std::make_shared<IntroGameState>(gameStateManager));
 }
 
 void MainGame::initShaders() {
@@ -57,26 +62,17 @@ void MainGame::initShaders() {
 void MainGame::gameLoop() {
 
     //Will loop until we set _gameState to EXIT
-    while (_gameState != GameState::EXIT) {
+    while (_gameMode != GameMode::EXIT) {
        
         _fpsLimiter.begin();
 
         processInput();
-        _time += 0.1;
 
         _camera.update();
 
-		//increment all bullets
-		for (int i = 0; i < _bullets.size(); i){
-			if(_bullets[i].update() == true){
-				_bullets[i] = _bullets.back();
-				_bullets.pop_back();
-			} else {
-				i++;
-			}
-		}
+		gameStateManager->Update(_fpsLimiter.getFrameTime());
 
-        drawGame();
+		drawGame();
 
         _fps = _fpsLimiter.end();
 
@@ -101,7 +97,7 @@ void MainGame::processInput() {
     while (SDL_PollEvent(&evnt)) {
         switch (evnt.type) {
             case SDL_QUIT:
-                _gameState = GameState::EXIT;
+                _gameMode = GameMode::EXIT;
                 break;
             case SDL_MOUSEMOTION:
                 _inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
@@ -177,22 +173,7 @@ void MainGame::drawGame() {
 
     _spriteBatch.begin();
 
-    glm::vec4 pos(_screenWidth/2, _screenHeight/2, _screenWidth, _screenHeight);
-	glm::vec4 pos1(0.0f, 0.0f, _screenWidth, _screenHeight);
-    glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/spook.png");
-    Bengine::Color color;
-    color.r = 255;
-    color.g = 255;
-    color.b = 255;
-    color.a = 255;
-
-	_spriteBatch.draw(pos,_rotation++, uv, spook.id, 0.0f, color);
-
-	for (int i = 0; i < _bullets.size(); i++)
-	{
-		_bullets[i].draw(_spriteBatch);
-	}
+	gameStateManager->Draw(_spriteBatch);
 
     _spriteBatch.end();
 

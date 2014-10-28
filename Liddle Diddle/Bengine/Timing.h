@@ -18,6 +18,7 @@ namespace Bengine {
 
         // end() will return the current FPS as a float
         float end();
+		float getFrameTime() {return _frameTime;};
     private:
         // Calculates the current FPS
         void calculateFPS();

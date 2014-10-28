@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="StateStuff">
+      <UniqueIdentifier>{e52aba62-24cf-40e9-9f33-102387134fb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{07060931-feb1-4964-9e7c-159ac5b8e753}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,6 +30,33 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Drawable.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Updateable.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateProvider.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Modality.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultGameStateManager.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateManager.cpp">
+      <Filter>StateStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroGameState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuGameState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -31,6 +64,33 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawable.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Updateable.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateManager.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateProvider.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Modality.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultGameStateManager.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroGameState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuGameState.h">
+      <Filter>States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
