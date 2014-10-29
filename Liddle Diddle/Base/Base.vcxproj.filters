@@ -131,5 +131,8 @@
     <ClInclude Include="GameWorld.h">
       <Filter>Assignment 4</Filter>
     </ClInclude>
+    <ClInclude Include="Inputable.h">
+      <Filter>StateStuff</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -66,11 +66,9 @@ void MainGame::gameLoop() {
        
         _fpsLimiter.begin();
 
-        processInput();
-
         _camera.update();
 
-		gameStateManager->Update(_fpsLimiter.getFrameTime());
+		gameStateManager->Update(_fpsLimiter.getFrameTime(), _inputManager);
 
 		drawGame();
 

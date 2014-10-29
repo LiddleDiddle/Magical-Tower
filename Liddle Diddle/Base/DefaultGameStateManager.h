@@ -6,6 +6,8 @@
 #include "GameStateManager.h"
 #include "Drawable.h"
 #include "Updateable.h"
+#include "Inputable.h"
+#include <Bengine/InputManager.h>
 
   // ------------------------------------------------------------------------------------------- //
 
@@ -52,7 +54,7 @@
 
     /// <summary>Advances the time of the active game states</summary>
     /// <param name="elapsedTime">Elapsed simulation time</param>
-    public: void Update(float elapsedTime);
+  public: void Update(float elapsedTime, Bengine::InputManager& inputManager);
 
     /// <summary>
     ///   Instructs the active game states to render themselves or to update the scene graph
