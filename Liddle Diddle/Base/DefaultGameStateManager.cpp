@@ -70,9 +70,9 @@
 
   // ------------------------------------------------------------------------------------------- //
 
-  void DefaultGameStateManager::Update(float elapsedTime) {
+  void DefaultGameStateManager::Update(float elapsedTime, Bengine::InputManager& inputManager) {
     for(std::size_t index = 0; index < this->exposedUpdateables.size(); ++index) {
-      this->exposedUpdateables.at(index)->Update(elapsedTime);
+      this->exposedUpdateables.at(index)->Update(elapsedTime, inputManager);
     }
   }
 

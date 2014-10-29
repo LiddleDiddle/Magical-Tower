@@ -4,10 +4,13 @@
 #include "GameState.h"
 #include "Updateable.h"
 #include "Drawable.h"
+#include "Inputable.h"
+#include <Bengine/InputManager.h>
 #include <memory>
 
 
-class MainMenuGameState : public GameState, public virtual Updateable
+
+class MainMenuGameState : public GameState, public virtual Updateable, public virtual Drawable
 {
 public:
 	/// <summary>Initializes a new intro game state</summary>
@@ -24,7 +27,10 @@ public:
 
 	/// <summary>Updates the time in the game state's simulation</summary>
 	/// <param name="elapsedTime">Time by which to advance the simulation</param>
-	void Update(float elapsedTime);
+	void Update(float elapsedTime, Bengine::InputManager& inputManager);
+
+	void Draw(Bengine::SpriteBatch& spriteBatch);
+	void ProcessInput();
 
 
 private: 

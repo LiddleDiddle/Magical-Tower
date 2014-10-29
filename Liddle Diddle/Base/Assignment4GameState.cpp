@@ -22,7 +22,7 @@ void Assignment4GameState::Exiting() {
 
 void Assignment4GameState::Update(float elapsedTime) 
 {
-	gameWorld.Update(0.01666666f);   //fix this
+	gameWorld.Update(elapsedTime / 1000);   //fix this
 }
 
 void Assignment4GameState::Draw(Bengine::SpriteBatch& spriteBatch)

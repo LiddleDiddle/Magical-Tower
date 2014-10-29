@@ -19,14 +19,14 @@ void IntroGameState::Exiting() {
     std::cout << "IntroGameState is exiting" << std::endl;
 }
 
-void IntroGameState::Update(float elapsedTime) {
+void IntroGameState::Update(float elapsedTime, Bengine::InputManager& inputManager) {
     if(_startTime)
 		_time += elapsedTime;
 	else
 		_startTime = true;
 
 	if(_time >= 2000)
-		this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
   }
 
 void IntroGameState::Draw(Bengine::SpriteBatch& spriteBatch)
