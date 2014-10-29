@@ -87,12 +87,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Assignment4GameState.cpp" />
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="box.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="DefaultGameStateManager.cpp" />
     <ClCompile Include="Drawable.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="GameStateProvider.cpp" />
+    <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Ground.cpp" />
     <ClCompile Include="IntroGameState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
@@ -101,12 +107,18 @@
     <ClCompile Include="Updateable.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assignment4GameState.h" />
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="box.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="DefaultGameStateManager.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="GameStateProvider.h" />
+    <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="IntroGameState.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MainMenuGameState.h" />
