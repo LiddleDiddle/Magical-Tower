@@ -1,6 +1,7 @@
 #include "IntroGameState.h"
 #include <iostream>
 #include "MainMenuGameState.h"
+#include "Assignment4GameState.h"
 #include <Bengine\ResourceManager.h>
 IntroGameState::IntroGameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
@@ -23,16 +24,14 @@ void IntroGameState::Update(float elapsedTime) {
 		_time += elapsedTime;
 	else
 		_startTime = true;
-	std::cout << "IntroGameState updated, elapsed time: "<< _time << std::endl;
 
-	if(_time >= 5000)
-		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
+	if(_time >= 2000)
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
   }
 
 void IntroGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 
-	std::cout << "-------------------------------------------------------------------------- " << std::endl;
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/Logo.png");
 	Bengine::Color color;

@@ -25,12 +25,14 @@ void Box::CreateBox2dObject(float x, float y)
 	body = world->CreateBody(&bodyDef);
 
 	b2PolygonShape dynamicBox;
-	dynamicBox.SetAsBox(4.0f, 4.0f);
+	dynamicBox.SetAsBox(0.5f, 0.5f);
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &dynamicBox;
 
+	fixtureDef.friction = 0.6f;
 	fixtureDef.density = 1.0f;
+	fixtureDef.restitution = 0.3f;
 
 	body->CreateFixture(&fixtureDef);
 }
@@ -47,7 +49,7 @@ void Box::Draw(Bengine::SpriteBatch& spriteBatch)
     color.b = 255;
     color.a = 255;
 
-	glm::vec4 rectangle = glm::vec4(position.x,position.y,100,100);
+	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
 
-	spriteBatch.draw(rectangle, 0, uv, spook.id, 0.0f, color);
+	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 }

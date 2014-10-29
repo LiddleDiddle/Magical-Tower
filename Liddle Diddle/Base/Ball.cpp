@@ -1,5 +1,4 @@
 #include "Ball.h"
-
 #include <Bengine\ResourceManager.h>
 
 Ball::Ball(b2World* world, float x, float y)
@@ -16,12 +15,13 @@ void Ball::CreateBox2dObject(float x, float y)
 {
 	// Circle
 	b2CircleShape shape;
-	shape.m_radius = 2.0f;
+	shape.m_radius = 0.5f;
 
 	b2FixtureDef fd;
 	fd.shape = &shape;
 	fd.density = 1.0f;
 	fd.restitution = 0.5f;
+	fd.friction = 0.3f;
 	b2BodyDef bd;
 	bd.type = b2_dynamicBody;
 	//bd.position.Set(-1.0f , 20.0f);
@@ -43,7 +43,6 @@ void Ball::Draw(Bengine::SpriteBatch& spriteBatch)
     color.b = 255;
     color.a = 255;
 
-	glm::vec4 rectangle = glm::vec4(position.x,position.y,60,60);
-
-	spriteBatch.draw(rectangle, 0, uv, spook.id, 0.0f, color);
+	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
+	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 }

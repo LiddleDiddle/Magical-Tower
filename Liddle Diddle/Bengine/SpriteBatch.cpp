@@ -44,8 +44,8 @@ void SpriteBatch::draw(const glm::vec4& destRect, float rotation, const glm::vec
 
 	//tl bl br tr
 	glm::vec2 verts[4] = { glm::vec2(-destRect.z/2,destRect.w/2), glm::vec2(-destRect.z/2,-destRect.w/2), glm::vec2(destRect.z/2,-destRect.w/2), glm::vec2(destRect.z/2,destRect.w/2) };
-	glm::mat2 rotationMatrix(cos(rotation*PI/180),-sin(rotation*PI/180),sin(rotation*PI/180),cos(rotation*PI/180));
-
+	//glm::mat2 rotationMatrix(cos(rotation*PI/180),-sin(rotation*PI/180),sin(rotation*PI/180),cos(rotation*PI/180));
+	glm::mat2 rotationMatrix(cos(-rotation),-sin(-rotation),sin(-rotation),cos(-rotation));
 	for (int i = 0; i < 4; i++)
 	{
 		verts[i] = rotationMatrix * verts[i];

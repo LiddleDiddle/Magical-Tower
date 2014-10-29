@@ -2,6 +2,9 @@
 #include <iostream>
 #include "GameWorld.h"
 
+GameWorld gameWorld;
+
+
 Assignment4GameState::Assignment4GameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
