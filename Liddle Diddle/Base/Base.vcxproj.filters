@@ -19,6 +19,9 @@
     <Filter Include="States">
       <UniqueIdentifier>{07060931-feb1-4964-9e7c-159ac5b8e753}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assignment 4">
+      <UniqueIdentifier>{0fa81cf9-e9dc-4161-a082-a44b26119997}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +60,24 @@
     <ClCompile Include="MainMenuGameState.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="box.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment4GameState.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWorld.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -91,6 +112,24 @@
     </ClInclude>
     <ClInclude Include="MainMenuGameState.h">
       <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="box.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment4GameState.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWorld.h">
+      <Filter>Assignment 4</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
