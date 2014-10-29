@@ -1,31 +1,12 @@
-﻿Build started 10/28/2014 11:29:52 AM.
+﻿Build started 10/29/2014 2:01:38 PM.
      1>Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Bengine.cpp Camera2D.cpp Errors.cpp GLSLProgram.cpp IOManager.cpp ImageLoader.cpp InputManager.cpp ResourceManager.cpp Sprite.cpp SpriteBatch.cpp TextureCache.cpp Timing.cpp Window.cpp picoPNG.cpp
-         picoPNG.cpp
-         Window.cpp
-         Timing.cpp
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\timing.cpp(24): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\timing.cpp(41): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\timing.cpp(44): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
-         TextureCache.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt SpriteBatch.cpp
          SpriteBatch.cpp
      1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\spritebatch.cpp(8): warning C4305: 'initializing' : truncation from 'double' to 'const float'
      1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\spritebatch.cpp(28): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\spritebatch.cpp(79): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\spritebatch.cpp(112): warning C4018: '<' : signed/unsigned mismatch
-         Sprite.cpp
-         ResourceManager.cpp
-         InputManager.cpp
-         ImageLoader.cpp
-         IOManager.cpp
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\iomanager.cpp(19): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'int', possible loss of data
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\iomanager.cpp(23): warning C4244: '-=' : conversion from 'std::streamoff' to 'int', possible loss of data
-         GLSLProgram.cpp
-         Errors.cpp
-         Camera2D.cpp
-         Bengine.cpp
-         Generating Code...
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Bengine.lib" /NOLOGO Debug\Bengine.obj
          Debug\Camera2D.obj
@@ -46,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.01
+Time Elapsed 00:00:01.06

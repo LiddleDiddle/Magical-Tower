@@ -1,4 +1,5 @@
 #include "Ground.h"
+#include <iostream>
 
 
 Ground::Ground(b2World* world)
@@ -27,7 +28,7 @@ void Ground::CreateBox2dObject(float x, float y)
 	b2EdgeShape groundBox;
 	// The extents are the half-widths of the box.
 	
-	groundBox.Set(b2Vec2(-40.0f, 0.0f), b2Vec2(40.0f, 10.0f));
+	groundBox.Set(b2Vec2(30.0f, 0.0f), b2Vec2(0.0f, 0.0f));
 
 	// Add the ground fixture to the ground body.
 	body->CreateFixture(&groundBox, 0.0f);

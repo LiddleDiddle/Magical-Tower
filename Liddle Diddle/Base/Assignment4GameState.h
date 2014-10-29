@@ -31,6 +31,5 @@ public:
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
 	float _time;
-	GameWorld* gameWorld;
 };
 
