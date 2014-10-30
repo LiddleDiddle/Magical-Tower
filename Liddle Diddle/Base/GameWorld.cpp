@@ -4,6 +4,8 @@
 #include "Ball.h"
 #include "Ground.h"
 
+#include <SDL2/SDL.h>
+
 GameWorld::GameWorld(void)
 {
 
@@ -30,7 +32,9 @@ void GameWorld::CreateBox2DWorld()
 	objects.push_back(new Box(world, 11.0f, 3));
 	objects.push_back(new Box(world, 11.0f, 2));
 	objects.push_back(new Box(world, 11.0f, 1));
-	objects.push_back(new Ball(world, 9.0f, 16.0f));
+	objects.push_back(new Ball(world, 0.0f, 2.0f));
+
+	
 }
 
 void GameWorld::InitOpenGL(int width, int height)
@@ -40,6 +44,8 @@ void GameWorld::InitOpenGL(int width, int height)
 
 void GameWorld::Update(float time)
 {
+	OnKeyEvent();
+
 	int32 velocityIterations = 6;
 	int32 positionIterations = 2;
 	world->Step(time, velocityIterations, positionIterations);
@@ -53,5 +59,32 @@ void GameWorld::Draw ( Bengine::SpriteBatch& spriteBatch )
 
 void GameWorld::OnKeyEvent()
 {
+	SDL_Event evnt;
 
+	const float CAMERA_SPEED = 4.0f;
+	const float SCALE_SPEED = 0.1f;
+
+	//Will keep looping until there are no more events to process
+	while (SDL_PollEvent(&evnt)) {
+		switch (evnt.type) {
+		case SDL_MOUSEMOTION:
+			_inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
+			break;
+		case SDL_KEYDOWN:
+			_inputManager.pressKey(evnt.key.keysym.sym);
+			break;
+		case SDL_KEYUP:
+			_inputManager.releaseKey(evnt.key.keysym.sym);
+			break;
+		case SDL_MOUSEBUTTONDOWN:
+			_inputManager.pressKey(evnt.button.button);
+			break;
+		case SDL_MOUSEBUTTONUP:
+			_inputManager.releaseKey(evnt.button.button);
+			break;
+		}
+	}
+
+	if (_inputManager.isKeyPressed(SDLK_SPACE)) {
+	}
 }

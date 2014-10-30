@@ -5,6 +5,7 @@
 #include "GameObject.h"
 
 #include <Bengine\SpriteBatch.h>
+#include <Bengine/InputManager.h>
 
 #include <vector>
 
@@ -23,5 +24,6 @@ private:
 
 	b2World* world;
 	std::vector<GameObject*> objects;
+	Bengine::InputManager _inputManager;
 };
 
