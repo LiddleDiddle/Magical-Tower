@@ -48,22 +48,23 @@ void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputM
     }
 	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
 		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
-		if (mouseCoords.x < _WigiRect.x + 100 && mouseCoords.x > _WigiRect.x -100 && mouseCoords.y > 100 && mouseCoords.y < 200)
+		mouseCoords.y = 720 - mouseCoords.y;
+		if (mouseCoords.x < _WigiRect.x + 100 && mouseCoords.x > _WigiRect.x -100 && mouseCoords.y > _WigiRect.y - 50 && mouseCoords.y < _WigiRect.y +50)
 		{
 			//this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 			std::cout << "Wigi\n"; 
 		}
-		if (mouseCoords.x < _MikeRect.x + 100 && mouseCoords.x > _MikeRect.x -100 && mouseCoords.y > 520 && mouseCoords.y < 620)
+		if (mouseCoords.x < _MikeRect.x + 100 && mouseCoords.x > _MikeRect.x -100 && mouseCoords.y > _MikeRect.y - 50 && mouseCoords.y < _MikeRect.y +50)
 		{
 			//this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 			std::cout << "Mike\n"; 
 		}
-		if (mouseCoords.x < _RemedyRect.x + 100 && mouseCoords.x > _RemedyRect.x -100 && mouseCoords.y > 520 && mouseCoords.y < 620)
+		if (mouseCoords.x < _RemedyRect.x + 100 && mouseCoords.x > _RemedyRect.x -100 && mouseCoords.y > _RemedyRect.y - 50 && mouseCoords.y < _RemedyRect.y +50)
 		{
 			//this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 			std::cout << "Remedy\n"; 
 		}
-		if (mouseCoords.x < _KingRect.x + 100 && mouseCoords.x > _KingRect.x -100 && mouseCoords.y > 100 && mouseCoords.y < 200)
+		if (mouseCoords.x < _KingRect.x + 100 && mouseCoords.x > _KingRect.x -100 && mouseCoords.y > _KingRect.y - 50 && mouseCoords.y < _KingRect.y +50)
 		{
 			this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 		}
