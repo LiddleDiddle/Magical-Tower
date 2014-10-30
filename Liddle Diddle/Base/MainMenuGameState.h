@@ -4,7 +4,6 @@
 #include "GameState.h"
 #include "Updateable.h"
 #include "Drawable.h"
-#include "Inputable.h"
 #include <Bengine/InputManager.h>
 #include <memory>
 

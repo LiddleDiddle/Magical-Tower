@@ -6,7 +6,6 @@
 #include "GameStateManager.h"
 #include "Drawable.h"
 #include "Updateable.h"
-#include "Inputable.h"
 #include <Bengine/InputManager.h>
 
   // ------------------------------------------------------------------------------------------- //

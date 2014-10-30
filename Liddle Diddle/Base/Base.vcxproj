@@ -119,7 +119,6 @@
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Ground.h" />
-    <ClInclude Include="Inputable.h" />
     <ClInclude Include="IntroGameState.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MainMenuGameState.h" />

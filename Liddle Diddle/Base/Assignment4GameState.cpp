@@ -20,7 +20,7 @@ void Assignment4GameState::Exiting() {
     std::cout << "IntroGameState is exiting" << std::endl;
 }
 
-void Assignment4GameState::Update(float elapsedTime) 
+void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inputManager) 
 {
 	gameWorld.Update(elapsedTime / 1000);   //fix this
 }

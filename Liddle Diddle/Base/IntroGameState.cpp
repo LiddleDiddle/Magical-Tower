@@ -1,7 +1,6 @@
 #include "IntroGameState.h"
 #include <iostream>
 #include "MainMenuGameState.h"
-#include "Assignment4GameState.h"
 #include <Bengine\ResourceManager.h>
 IntroGameState::IntroGameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
