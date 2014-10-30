@@ -1,7 +1,7 @@
 #include "Assignment4GameState.h"
 #include <iostream>
 #include "GameWorld.h"
-
+#include <SDL2/SDL.h>
 GameWorld gameWorld;
 
 
@@ -23,9 +23,27 @@ void Assignment4GameState::Exiting() {
 void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inputManager) 
 {
 	gameWorld.Update(elapsedTime / 1000);   //fix this
+	SDL_Event evnt;
+
+	//Will keep looping until there are no more events to process
+	while (SDL_PollEvent(&evnt)) {
+		switch (evnt.type) {
+		case SDL_KEYDOWN:
+			inputManager.pressKey(evnt.key.keysym.sym);
+			break;
+		case SDL_KEYUP:
+			inputManager.releaseKey(evnt.key.keysym.sym);
+			break;
+		}
+	}
+
+	if (inputManager.isKeyPressed(SDLK_SPACE)) {
+		gameWorld.OnKeyEvent();
+	}
 }
 
 void Assignment4GameState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	gameWorld.Draw(spriteBatch);
 }
+

@@ -38,3 +38,7 @@ void Ground::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 
 }
+
+void Ground::addForceCenter(float x, float y){
+	body->ApplyForceToCenter(b2Vec2(x,y),true);
+}

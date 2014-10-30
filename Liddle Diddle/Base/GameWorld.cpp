@@ -30,7 +30,7 @@ void GameWorld::CreateBox2DWorld()
 	objects.push_back(new Box(world, 11.0f, 3));
 	objects.push_back(new Box(world, 11.0f, 2));
 	objects.push_back(new Box(world, 11.0f, 1));
-	objects.push_back(new Ball(world, 9.0f, 16.0f));
+	objects.push_back(new Ball(world, 9.0f, 2.0f));
 }
 
 void GameWorld::InitOpenGL(int width, int height)
@@ -53,5 +53,5 @@ void GameWorld::Draw ( Bengine::SpriteBatch& spriteBatch )
 
 void GameWorld::OnKeyEvent()
 {
-
+	objects.back()->addForceCenter(200,100);
 }

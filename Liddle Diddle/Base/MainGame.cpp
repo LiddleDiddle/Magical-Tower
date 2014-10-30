@@ -65,7 +65,7 @@ void MainGame::gameLoop() {
     while (_gameMode != GameMode::EXIT) {
        
         _fpsLimiter.begin();
-
+		processInput();
         _camera.update();
 
 		gameStateManager->Update(_fpsLimiter.getFrameTime(), _inputManager);
@@ -134,14 +134,6 @@ void MainGame::processInput() {
         _camera.setScale(_camera.getScale() - SCALE_SPEED);
     }
 	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
-		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
-		mouseCoords = _camera.convertScreenToWorld(mouseCoords);
-
-		glm::vec2 playerPosition(0.0f);
-		glm::vec2 direction = mouseCoords - playerPosition;
-		direction = glm::normalize(direction);
-
-		_bullets.emplace_back(glm::vec2(0.0f,0.0f), direction, 5, 1000);
 	}
 }
 

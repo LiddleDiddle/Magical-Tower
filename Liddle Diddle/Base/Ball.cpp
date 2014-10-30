@@ -46,3 +46,7 @@ void Ball::Draw(Bengine::SpriteBatch& spriteBatch)
 	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
 	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 }
+
+void Ball::addForceCenter(float x, float y){
+	body->ApplyForceToCenter(b2Vec2(x,y),true);
+}

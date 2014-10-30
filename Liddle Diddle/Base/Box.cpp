@@ -53,3 +53,7 @@ void Box::Draw(Bengine::SpriteBatch& spriteBatch)
 
 	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 }
+
+void Box::addForceCenter(float x, float y){
+	body->ApplyForceToCenter(b2Vec2(x,y),true);
+}
