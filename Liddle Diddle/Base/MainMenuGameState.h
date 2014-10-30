@@ -34,5 +34,9 @@ public:
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
+	glm::vec4 _MikeRect;
+	glm::vec4 _KingRect;
+	glm::vec4 _WigiRect;
+	glm::vec4 _RemedyRect;
 };
 
