@@ -30,9 +30,9 @@ void Box::CreateBox2dObject(float x, float y)
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &dynamicBox;
 
-	fixtureDef.friction = 0.6f;
+	fixtureDef.friction = 1.0f;
 	fixtureDef.density = 1.0f;
-	fixtureDef.restitution = 0.3f;
+	fixtureDef.restitution = 0.5f;
 
 	body->CreateFixture(&fixtureDef);
 }

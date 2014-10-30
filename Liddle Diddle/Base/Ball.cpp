@@ -29,6 +29,7 @@ void Ball::CreateBox2dObject(float x, float y)
 	body = world->CreateBody(&bd);			
 	body->CreateFixture(&fd);
 
+	body->ApplyForceToCenter(b2Vec2(1000,50),true);
 }
 void Ball::Draw(Bengine::SpriteBatch& spriteBatch)
 {
