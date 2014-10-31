@@ -1,10 +1,11 @@
 #include "MainMenuGameState.h"
+#include "TylerMenuState.h"
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
-#include "Assignment4GameState.h"
 
-float rotation;
+
+
 
 MainMenuGameState::MainMenuGameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
@@ -27,32 +28,10 @@ void MainMenuGameState::Exiting() {
 
 void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
 
-	SDL_Event evnt;
-
-    //Will keep looping until there are no more events to process
-    while (SDL_PollEvent(&evnt)) {
-        switch (evnt.type) {
-
-            case SDL_MOUSEMOTION:
-                _inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
-                break;
-            case SDL_KEYDOWN:
-                _inputManager.pressKey(evnt.key.keysym.sym);
-                break;
-            case SDL_KEYUP:
-                _inputManager.releaseKey(evnt.key.keysym.sym);
-                break;
-			case SDL_MOUSEBUTTONDOWN:
-				_inputManager.pressKey(evnt.button.button);
-				break;
-			case SDL_MOUSEBUTTONUP:
-				_inputManager.releaseKey(evnt.button.button);
-				break;
-        }
-    }
 	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
 		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
 		mouseCoords.y = 720 - mouseCoords.y;
+
 		if (mouseCoords.x < _WigiRect.x + 100 && mouseCoords.x > _WigiRect.x -100 && mouseCoords.y > _WigiRect.y - 50 && mouseCoords.y < _WigiRect.y +50)
 		{
 			//this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
@@ -70,13 +49,10 @@ void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputM
 		}
 		if (glm::length(glm::vec2(mouseCoords.x,mouseCoords.y) - glm::vec2(_KingRect.x,_KingRect.y)) <= 150)
 		{
-			this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
 		}
 	}
-	
-   // std::cout << "MainMenuState updated" << std::endl;
-	
-  }
+ }
 
 void MainMenuGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 {

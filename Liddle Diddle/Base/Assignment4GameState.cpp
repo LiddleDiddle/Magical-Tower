@@ -1,12 +1,12 @@
-#include "Assignment4GameState.h"
+#include "Assignment4GameState.h"r
 #include <iostream>
 #include "GameWorld.h"
 #include <SDL2/SDL.h>
+
 GameWorld gameWorld;
 
-
 Assignment4GameState::Assignment4GameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
-    gameStateManager(gameStateManager) 
+    gameStateManager(gameStateManager)
 {
 
 }
@@ -23,22 +23,13 @@ void Assignment4GameState::Exiting() {
 void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inputManager) 
 {
 	gameWorld.Update(elapsedTime / 1000);   //fix this
-	SDL_Event evnt;
-
-	//Will keep looping until there are no more events to process
-	while (SDL_PollEvent(&evnt)) {
-		switch (evnt.type) {
-		case SDL_KEYDOWN:
-			inputManager.pressKey(evnt.key.keysym.sym);
-			break;
-		case SDL_KEYUP:
-			inputManager.releaseKey(evnt.key.keysym.sym);
-			break;
-		}
-	}
-
+	
 	if (inputManager.isKeyPressed(SDLK_SPACE)) {
 		gameWorld.OnKeyEvent();
+	}
+	if (inputManager.isKeyPressed(SDLK_r)) {
+		gameWorld.endIt();
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 	}
 }
 

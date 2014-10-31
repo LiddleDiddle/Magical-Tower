@@ -42,7 +42,7 @@ void Box::Draw(Bengine::SpriteBatch& spriteBatch)
 	float32 angle = body->GetAngle();
 
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/Box.png");
+	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/Assignment 4/Box.png");
 	Bengine::Color color;
 	color.r = 255;
     color.g = 255;
@@ -52,6 +52,7 @@ void Box::Draw(Bengine::SpriteBatch& spriteBatch)
 	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
 
 	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
+
 }
 
 void Box::addForceCenter(float x, float y){

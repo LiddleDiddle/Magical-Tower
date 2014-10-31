@@ -36,7 +36,7 @@ void Ball::Draw(Bengine::SpriteBatch& spriteBatch)
 	float32 angle = body->GetAngle();
 
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/Ball.png");
+	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/Assignment 4/Ball.png");
 	Bengine::Color color;
 	color.r = 255;
     color.g = 255;

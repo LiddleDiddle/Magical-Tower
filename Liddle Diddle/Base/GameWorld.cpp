@@ -3,7 +3,8 @@
 #include "Box.h"
 #include "Ball.h"
 #include "Ground.h"
-
+#include <Bengine\ResourceManager.h>
+#include <iostream>
 GameWorld::GameWorld(void)
 {
 
@@ -12,11 +13,21 @@ GameWorld::GameWorld(void)
 
 GameWorld::~GameWorld(void)
 {
+	/*while(objects.size())
+	{
+		delete objects.back();
+		objects.pop_back();
+	}
+	delete world;*/
+}
+
+void GameWorld::endIt(){
 	while(objects.size())
 	{
 		delete objects.back();
 		objects.pop_back();
 	}
+	delete world;
 }
 
 void GameWorld::CreateBox2DWorld()
@@ -47,8 +58,17 @@ void GameWorld::Update(float time)
 
 void GameWorld::Draw ( Bengine::SpriteBatch& spriteBatch )
 {
+	static Bengine::GLTexture berry = Bengine::ResourceManager::getTexture("Textures/Assignment 4/berry.png");
+
+	Bengine::Color color;
+	color.r = 255;
+    color.g = 255;
+    color.b = 255;
+    color.a = 255;
+	spriteBatch.draw(glm::vec4(640,360,1280,720), 0, glm::vec4(0.0f,0.0f,1.0f,1.0f), berry.id, 0.0f, color);
 	int count = objects.size();
 	for(int i = 0; i < count; i++) objects[i]->Draw(spriteBatch);
+	std::cout << objects.size() << std::endl;
 }
 
 void GameWorld::OnKeyEvent()

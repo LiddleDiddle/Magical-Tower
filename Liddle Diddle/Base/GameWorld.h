@@ -19,6 +19,7 @@ public:
 	void Update(float time);
 	void Draw ( Bengine::SpriteBatch& spriteBatch );
 	void OnKeyEvent();
+	void endIt();
 private:
 
 	b2World* world;

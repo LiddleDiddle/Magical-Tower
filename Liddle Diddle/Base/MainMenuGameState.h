@@ -38,5 +38,6 @@ private:
 	glm::vec4 _KingRect;
 	glm::vec4 _WigiRect;
 	glm::vec4 _RemedyRect;
+	float rotation;
 };
 

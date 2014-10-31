@@ -114,7 +114,7 @@ void MainGame::processInput() {
 				break;
         }
     }
-
+/*
     if (_inputManager.isKeyPressed(SDLK_w)) {
         _camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, CAMERA_SPEED));
     }
@@ -135,6 +135,7 @@ void MainGame::processInput() {
     }
 	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
 	}
+	*/
 }
 
 //Draws the game using the almighty OpenGL

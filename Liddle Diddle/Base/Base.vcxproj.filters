@@ -78,6 +78,12 @@
     <ClCompile Include="Ground.cpp">
       <Filter>Assignment 4</Filter>
     </ClCompile>
+    <ClCompile Include="TylerMenuState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScreenState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -130,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="GameWorld.h">
       <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="TylerMenuState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScreenState.h">
+      <Filter>States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

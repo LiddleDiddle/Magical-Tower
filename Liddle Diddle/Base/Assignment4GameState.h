@@ -6,6 +6,8 @@
 #include "Drawable.h"
 #include <memory>
 
+
+
 class Assignment4GameState : public GameState, public virtual Updateable, public virtual Drawable
 {
 public:
@@ -27,7 +29,7 @@ public:
 	void Update(float elapsedTime, Bengine::InputManager& inputManager);
 
 	void Draw(Bengine::SpriteBatch& spriteBatch);
-
+	
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
 	float _time;
