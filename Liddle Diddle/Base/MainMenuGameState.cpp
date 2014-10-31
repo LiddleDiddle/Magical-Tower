@@ -3,6 +3,9 @@
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
 #include "Assignment4GameState.h"
+
+float rotation;
+
 MainMenuGameState::MainMenuGameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
@@ -15,6 +18,7 @@ void MainMenuGameState::Entered() {
 	_MikeRect = glm::vec4(200,150,200,100);
 	_KingRect = glm::vec4(1280-200,720-200,300,300);
 	_RemedyRect = glm::vec4(1080,150,200,100);
+	rotation = 0;
 }
 
 void MainMenuGameState::Exiting() {
@@ -91,7 +95,7 @@ void MainMenuGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 	glm::vec4 rectangle = glm::vec4(640,360,1280,720);
 
-	spriteBatch.draw(_KingRect, 0, uv, King.id, 0.0f, color);
+	spriteBatch.draw(_KingRect, rotation += 0.01, uv, King.id, 0.0f, color);
 	spriteBatch.draw(_MikeRect, 0, uv, Mike.id, 0.0f, color);
 	spriteBatch.draw(_WigiRect, 0, uv, Wigi.id, 0.0f, color);
 	spriteBatch.draw(_RemedyRect, 0, uv, Remedy.id, 0.0f, color);
