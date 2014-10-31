@@ -13,7 +13,7 @@ void MainMenuGameState::Entered() {
     std::cout << "MainMenuState has been entered" << std::endl;
 	_WigiRect = glm::vec4(200,720-150,200,100);
 	_MikeRect = glm::vec4(200,150,200,100);
-	_KingRect = glm::vec4(1080,720-150,200,100);
+	_KingRect = glm::vec4(1280-200,720-200,300,300);
 	_RemedyRect = glm::vec4(1080,150,200,100);
 }
 
@@ -64,7 +64,7 @@ void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputM
 			//this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 			std::cout << "Remedy\n"; 
 		}
-		if (mouseCoords.x < _KingRect.x + 100 && mouseCoords.x > _KingRect.x -100 && mouseCoords.y > _KingRect.y - 50 && mouseCoords.y < _KingRect.y +50)
+		if (glm::length(glm::vec2(mouseCoords.x,mouseCoords.y) - glm::vec2(_KingRect.x,_KingRect.y)) <= 150)
 		{
 			this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 		}
