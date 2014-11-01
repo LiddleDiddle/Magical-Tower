@@ -105,6 +105,8 @@
     <ClCompile Include="MainMenuGameState.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Modality.cpp" />
+    <ClCompile Include="MultiCharacterSelectState.cpp" />
+    <ClCompile Include="StageSelectState.cpp" />
     <ClCompile Include="StartScreenState.cpp" />
     <ClCompile Include="TylerMenuState.cpp" />
     <ClCompile Include="Updateable.cpp" />
@@ -127,6 +129,8 @@
     <ClInclude Include="MainMenuGameState.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Modality.h" />
+    <ClInclude Include="MultiCharacterSelectState.h" />
+    <ClInclude Include="StageSelectState.h" />
     <ClInclude Include="StartScreenState.h" />
     <ClInclude Include="TylerMenuState.h" />
     <ClInclude Include="Updateable.h" />
