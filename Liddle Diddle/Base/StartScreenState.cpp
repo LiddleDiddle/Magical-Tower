@@ -1,5 +1,5 @@
 #include "StartScreenState.h"
-#include "MainMenuGameState.h"
+#include "MainMenuState.h"
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
@@ -24,7 +24,7 @@ void StartScreenState::Update(float elapsedTime, Bengine::InputManager& _inputMa
 	if(_inputManager.isKeyPressed(SDLK_SPACE))
 	{
 
-		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuState(gameStateManager)));
 	}
 }
 

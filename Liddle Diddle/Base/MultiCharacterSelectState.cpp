@@ -34,12 +34,13 @@ void MultiCharacterSelectState::Entered() {
 	_joined = new bool[4];
 	_ready = new bool[4];
 	_character = new int[4];
-	
+	_direction = new Direction[4];
 	for (int i = 0; i < 4; i++)
 	{
 		_ready[i] = false;
 		_joined[i] = false;
 		_character[i] = i;
+		_direction[i] = Direction::NEUTRAL;
 	}
 	_time = 0;
 }
@@ -50,6 +51,26 @@ void MultiCharacterSelectState::Exiting() {
 
 void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
 	_time += elapsedTime;
+
+	for (int i = 0; i < 4; i++)
+	{
+		_direction[i] = Direction::NEUTRAL;
+	}
+
+	if(_inputManager.isKeyPressed(SDLK_UP)){
+		for (int i = 0; i < 4; i++)
+		{
+			_direction[i] = Direction::UP;
+		}
+	}
+
+	if(_inputManager.isKeyPressed(SDLK_DOWN)){
+		for (int i = 0; i < 4; i++)
+		{
+			_direction[i] = Direction::DOWN;
+		}
+	}
+
 	if(_inputManager.isKeyPressed(SDLK_UP) && _time >= 200){
 		for (int i = 0; i < 4; i++)
 		{
@@ -112,7 +133,11 @@ void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
     color.b = 255;
     color.a = 255;
 
-	
+	Bengine::Color green;
+	green.r = 0;
+    green.g = 255;
+    green.b = 0;
+    green.a = 255;
 
 	static Bengine::GLTexture bg = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/blankBG.png");
 	static Bengine::GLTexture join = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/join.png");
@@ -125,6 +150,7 @@ void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 	static Bengine::GLTexture ready = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/ready.png");
 	static Bengine::GLTexture border = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/border.png");
+	static Bengine::GLTexture arrow = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/arrowUp.png");
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -150,6 +176,22 @@ void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 				break;
 			case 3:
 				spriteBatch.draw(glm::vec4(160 + 320 * i,360,320,720), 0, uv, gorilla.id, 0.0f, color);
+				break;
+			}
+
+			switch (_direction[i])
+			{
+			case Direction::NEUTRAL:
+				spriteBatch.draw(glm::vec4(160 + 320 * i,720-35,60,30), 0, uv, arrow.id, 0.0f, color);
+				spriteBatch.draw(glm::vec4(160 + 320 * i,35,60,30), 3.14159265359, uv, arrow.id, 0.0f, color);
+				break;
+			case Direction::UP:
+				spriteBatch.draw(glm::vec4(160 + 320 * i,720-35,60,30), 0, uv, arrow.id, 0.0f, green);
+				spriteBatch.draw(glm::vec4(160 + 320 * i,35,60,30), 3.14159265359, uv, arrow.id, 0.0f, color);
+				break;
+			case Direction::DOWN:
+				spriteBatch.draw(glm::vec4(160 + 320 * i,720-35,60,30), 0, uv, arrow.id, 0.0f, color);
+				spriteBatch.draw(glm::vec4(160 + 320 * i,35,60,30), 3.14159265359, uv, arrow.id, 0.0f, green);
 				break;
 			}
 		}
