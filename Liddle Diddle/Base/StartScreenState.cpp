@@ -23,6 +23,7 @@ void StartScreenState::Update(float elapsedTime, Bengine::InputManager& _inputMa
 
 	if(_inputManager.isKeyPressed(SDLK_SPACE))
 	{
+
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
 	}
 }

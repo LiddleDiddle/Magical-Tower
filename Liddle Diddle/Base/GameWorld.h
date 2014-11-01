@@ -20,6 +20,7 @@ public:
 	void Draw ( Bengine::SpriteBatch& spriteBatch );
 	void OnKeyEvent();
 	void endIt();
+	
 private:
 
 	b2World* world;
