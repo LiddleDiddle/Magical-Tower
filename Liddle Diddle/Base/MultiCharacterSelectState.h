@@ -7,7 +7,11 @@
 #include <Bengine/InputManager.h>
 #include <memory>
 
-
+enum class Direction{
+	NEUTRAL,
+	UP,
+	DOWN
+};
 
 class MultiCharacterSelectState : public GameState, public virtual Updateable, public virtual Drawable
 {
@@ -37,6 +41,7 @@ private:
 	bool* _joined;
 	bool* _ready;
 	int* _character;
+	Direction* _direction;
 
 	float _time;
 
