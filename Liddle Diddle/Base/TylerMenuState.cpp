@@ -5,6 +5,7 @@
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
 #include "MainMenuState.h"
+#include "MultiCharacterSelectState.h"
 
 TylerMenuState::TylerMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
@@ -45,7 +46,7 @@ void TylerMenuState::Update(float elapsedTime, Bengine::InputManager& _inputMana
 			//three
 			if (mouseCoords.x > 640 && mouseCoords.x < 960)
 			{
-				this->gameStateManager->Switch(std::shared_ptr<GameState>(new StartScreenState(gameStateManager)));
+				this->gameStateManager->Switch(std::shared_ptr<GameState>(new MultiCharacterSelectState(gameStateManager)));
 			}
 			//four
 			if (mouseCoords.x > 1280 - 320 && mouseCoords.x < 1280)

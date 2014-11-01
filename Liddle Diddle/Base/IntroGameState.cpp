@@ -1,6 +1,6 @@
 #include "IntroGameState.h"
 #include <iostream>
-#include "MainMenuGameState.h"
+#include "TylerMenuState.h"
 #include <Bengine\ResourceManager.h>
 IntroGameState::IntroGameState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
@@ -25,7 +25,7 @@ void IntroGameState::Update(float elapsedTime, Bengine::InputManager& inputManag
 		_startTime = true;
 
 	if(_time >= 2000)
-		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
   }
 
 void IntroGameState::Draw(Bengine::SpriteBatch& spriteBatch)

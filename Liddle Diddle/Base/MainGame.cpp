@@ -37,7 +37,7 @@ void MainGame::initSystems() {
 
     Bengine::init();
 
-    _window.create("Game Engine", _screenWidth, _screenHeight, 0);
+    _window.create("Game Engine", _screenWidth, _screenHeight, SDL_WINDOW_RESIZABLE);
 
     initShaders();
 
