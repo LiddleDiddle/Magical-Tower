@@ -84,6 +84,9 @@
     <ClCompile Include="StartScreenState.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="StartScreenState.h">
       <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
+#include "MainMenuState.h"
 
 TylerMenuState::TylerMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
@@ -37,7 +38,15 @@ void TylerMenuState::Update(float elapsedTime, Bengine::InputManager& _inputMana
 				this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 			}
 			//two
+			if (mouseCoords.x > 320 && mouseCoords.x < 640)
+			{
+				this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuState(gameStateManager)));
+			}
 			//three
+			if (mouseCoords.x > 640 && mouseCoords.x < 960)
+			{
+				this->gameStateManager->Switch(std::shared_ptr<GameState>(new StartScreenState(gameStateManager)));
+			}
 			//four
 			if (mouseCoords.x > 1280 - 320 && mouseCoords.x < 1280)
 			{
@@ -61,7 +70,10 @@ void TylerMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 	static Bengine::GLTexture King = Bengine::ResourceManager::getTexture("Textures/TylerMenu/assignment4.png");
 	static Bengine::GLTexture anyKey = Bengine::ResourceManager::getTexture("Textures/TylerMenu/anyKey.png");
-	static Bengine::GLTexture berry = Bengine::ResourceManager::getTexture("Textures/Assignment 4/berry.png");
+	static Bengine::GLTexture mainMenu = Bengine::ResourceManager::getTexture("Textures/TylerMenu/mainMenu.png");
+	static Bengine::GLTexture characterSelect = Bengine::ResourceManager::getTexture("Textures/TylerMenu/characterSelect.png");
 	spriteBatch.draw(_one, 0, uv, King.id, 0.0f, color);
+	spriteBatch.draw(_two, 0, uv, mainMenu.id, 0.0f, color);
+	spriteBatch.draw(_three, 0, uv, characterSelect.id, 0.0f, color);
 	spriteBatch.draw(_four, 0, uv, anyKey.id, 0.0f, color);
 }

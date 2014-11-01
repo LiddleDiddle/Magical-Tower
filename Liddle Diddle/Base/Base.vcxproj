@@ -103,6 +103,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="MainMenuGameState.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Modality.cpp" />
     <ClCompile Include="StartScreenState.cpp" />
     <ClCompile Include="TylerMenuState.cpp" />
@@ -124,6 +125,7 @@
     <ClInclude Include="IntroGameState.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MainMenuGameState.h" />
+    <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Modality.h" />
     <ClInclude Include="StartScreenState.h" />
     <ClInclude Include="TylerMenuState.h" />
