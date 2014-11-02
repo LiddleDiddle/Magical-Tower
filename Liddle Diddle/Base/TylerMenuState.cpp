@@ -25,9 +25,9 @@ void TylerMenuState::Entered() {
 
 	
 	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/TylerMenu/assignment4.png"));
-	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/TylerMenu/anyKey.png"));
 	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/TylerMenu/mainMenu.png"));
 	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/TylerMenu/characterSelect.png"));
+	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/TylerMenu/anyKey.png"));
 	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/TylerMenu/stageSelect.png"));
 	_mousePressed = true;
 }
