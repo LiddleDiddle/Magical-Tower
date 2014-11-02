@@ -6,8 +6,9 @@
 #include "Drawable.h"
 #include <Bengine/InputManager.h>
 #include <Bengine\Camera2D.h>
+#include <Bengine\ResourceManager.h>
 #include <memory>
-
+#include <vector>
 
 
 class TylerMenuState : public GameState, public virtual Updateable, public virtual Drawable
@@ -34,9 +35,8 @@ public:
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
-	glm::vec4 _one;
-	glm::vec4 _two;
-	glm::vec4 _three;
-	glm::vec4 _four;
+	
+	std::vector<glm::vec4> _menuPositions;
+	std::vector<Bengine::GLTexture> _Textures;
 	bool _mousePressed;
 };
