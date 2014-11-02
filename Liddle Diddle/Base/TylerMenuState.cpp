@@ -61,7 +61,7 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 
 	const float CAMERA_SPEED = 4.0f;
 
-    if (_inputManager.isKeyPressed(SDLK_a)) {
+    if (_inputManager.isKeyPressed(SDLK_a) ) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
     }
     if (_inputManager.isKeyPressed(SDLK_d)) {

@@ -6,8 +6,8 @@
 #include "Drawable.h"
 #include <Bengine/InputManager.h>
 #include <memory>
-
-
+#include <Bengine\ResourceManager.h>
+#include <vector>
 
 class StageSelectState : public GameState, public virtual Updateable, public virtual Drawable
 {
@@ -34,6 +34,8 @@ public:
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
-	glm::vec4 startRect;
+
+	std::vector<glm::vec4> _menuPositions;
+	std::vector<Bengine::GLTexture> _Textures;
 
 };
