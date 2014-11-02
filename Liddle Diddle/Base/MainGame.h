@@ -24,12 +24,29 @@ enum class GameMode {PLAY, EXIT};
 class MainGame
 {
 public:
-    MainGame();
-    ~MainGame();
+
+	static MainGame* Instance()
+        {
+            if (s_pInstance == 0)
+            {
+                s_pInstance = new MainGame();
+            }
+            return s_pInstance;
+        }
+
+   
 
     void run();
+	
+    Bengine::Camera2D _camera;
+
 	glm::vec2 getScreenDimensions() { return glm::vec2(_screenWidth, _screenHeight); };
 private:
+	 MainGame();
+    ~MainGame();
+	
+    static MainGame* s_pInstance;
+
     void initSystems();
     void initShaders();
     void gameLoop();
@@ -44,7 +61,6 @@ private:
     GameMode _gameMode;
 
     Bengine::GLSLProgram _colorProgram;
-    Bengine::Camera2D _camera;
     Bengine::SpriteBatch _spriteBatch;
     Bengine::InputManager _inputManager;
     Bengine::FpsLimiter _fpsLimiter;
@@ -58,3 +74,4 @@ private:
 	std::shared_ptr<DefaultGameStateManager> gameStateManager;
 };
 
+typedef MainGame TheMainGame;

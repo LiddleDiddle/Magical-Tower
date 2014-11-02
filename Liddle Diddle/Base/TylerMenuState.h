@@ -5,6 +5,7 @@
 #include "Updateable.h"
 #include "Drawable.h"
 #include <Bengine/InputManager.h>
+#include <Bengine\Camera2D.h>
 #include <memory>
 
 
@@ -29,8 +30,7 @@ public:
 	void Update(float elapsedTime, Bengine::InputManager& inputManager);
 
 	void Draw(Bengine::SpriteBatch& spriteBatch);
-	void ProcessInput();
-
+	void ProcessInput(Bengine::InputManager _inputManager);
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
@@ -38,7 +38,5 @@ private:
 	glm::vec4 _two;
 	glm::vec4 _three;
 	glm::vec4 _four;
-
-	
 	bool _mousePressed;
 };

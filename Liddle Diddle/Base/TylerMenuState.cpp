@@ -6,11 +6,14 @@
 #include <Bengine/ResourceManager.h>
 #include "MainMenuState.h"
 #include "MultiCharacterSelectState.h"
+#include "MainGame.h"
+
+#define CAMERA TheMainGame::Instance()->_camera
 
 TylerMenuState::TylerMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
-	
+
 }
 
 void TylerMenuState::Entered() {
@@ -24,14 +27,51 @@ void TylerMenuState::Entered() {
 
 void TylerMenuState::Exiting() {
     std::cout << "MainMenuState is exiting" << std::endl;
+	CAMERA.setPosition(glm::vec2(CAMERA.getScreenDimensions().x/2,CAMERA.getScreenDimensions().y/2));
 }
 
 void TylerMenuState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
+	ProcessInput(_inputManager);
+  }
+
+void TylerMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
+{
+	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
+	Bengine::Color color;
+	color.r = 255;
+    color.g = 255;
+    color.b = 255;
+    color.a = 255;
+
+	static Bengine::GLTexture King = Bengine::ResourceManager::getTexture("Textures/TylerMenu/assignment4.png");
+	static Bengine::GLTexture anyKey = Bengine::ResourceManager::getTexture("Textures/TylerMenu/anyKey.png");
+	static Bengine::GLTexture mainMenu = Bengine::ResourceManager::getTexture("Textures/TylerMenu/mainMenu.png");
+	static Bengine::GLTexture characterSelect = Bengine::ResourceManager::getTexture("Textures/TylerMenu/characterSelect.png");
+	spriteBatch.draw(_one, 0, uv, King.id, 0.0f, color);
+	spriteBatch.draw(_two, 0, uv, mainMenu.id, 0.0f, color);
+	spriteBatch.draw(_three, 0, uv, characterSelect.id, 0.0f, color);
+	spriteBatch.draw(_four, 0, uv, anyKey.id, 0.0f, color);
+}
+
+void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
+
+	const float CAMERA_SPEED = 4.0f;
+
+    if (_inputManager.isKeyPressed(SDLK_a)) {
+        CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
+    }
+    if (_inputManager.isKeyPressed(SDLK_d)) {
+        CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
+    }
+
+	if(CAMERA.getPosition().x <= 640)
+		CAMERA.setPosition(glm::vec2(CAMERA.getScreenDimensions().x/2, CAMERA.getScreenDimensions().y/2));
+
 	if (_mousePressed == false){
 		if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
 			_mousePressed = true;
 			glm::vec2 mouseCoords = _inputManager.getMouseCoords();
-			mouseCoords.y = 720 - mouseCoords.y;
+			mouseCoords = CAMERA.convertScreenToWorld(mouseCoords);
 
 			//one
 			if (mouseCoords.x > 0 && mouseCoords.x < 320)
@@ -58,23 +98,4 @@ void TylerMenuState::Update(float elapsedTime, Bengine::InputManager& _inputMana
    // std::cout << "MainMenuState updated" << std::endl;
 	if (!_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
 		_mousePressed = false;
-  }
-
-void TylerMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
-{
-	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::Color color;
-	color.r = 255;
-    color.g = 255;
-    color.b = 255;
-    color.a = 255;
-
-	static Bengine::GLTexture King = Bengine::ResourceManager::getTexture("Textures/TylerMenu/assignment4.png");
-	static Bengine::GLTexture anyKey = Bengine::ResourceManager::getTexture("Textures/TylerMenu/anyKey.png");
-	static Bengine::GLTexture mainMenu = Bengine::ResourceManager::getTexture("Textures/TylerMenu/mainMenu.png");
-	static Bengine::GLTexture characterSelect = Bengine::ResourceManager::getTexture("Textures/TylerMenu/characterSelect.png");
-	spriteBatch.draw(_one, 0, uv, King.id, 0.0f, color);
-	spriteBatch.draw(_two, 0, uv, mainMenu.id, 0.0f, color);
-	spriteBatch.draw(_three, 0, uv, characterSelect.id, 0.0f, color);
-	spriteBatch.draw(_four, 0, uv, anyKey.id, 0.0f, color);
 }
