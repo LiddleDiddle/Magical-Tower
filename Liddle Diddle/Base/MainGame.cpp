@@ -1,10 +1,12 @@
 #include "MainGame.h"
 #include <Bengine/Errors.h>
 #include <Bengine/ResourceManager.h>
-
 #include <iostream>
 #include <string>
 #include "IntroGameState.h"
+
+MainGame* MainGame::s_pInstance = 0;
+
 //Constructor, just initializes private member variables
 MainGame::MainGame() : 
     _screenWidth(1280),
@@ -16,8 +18,8 @@ MainGame::MainGame() :
 	gameStateManager(std::make_shared<DefaultGameStateManager>())
 {
     _camera.init(_screenWidth, _screenHeight);
+	
 }
-
 //Destructor
 MainGame::~MainGame()
 {
