@@ -93,6 +93,9 @@
     <ClCompile Include="StageSelectState.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="BasicState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -159,6 +162,9 @@
       <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="StageSelectState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicState.h">
       <Filter>States</Filter>
     </ClInclude>
   </ItemGroup>

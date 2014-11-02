@@ -6,6 +6,7 @@
 #include "MainMenuState.h"
 #include "MultiCharacterSelectState.h"
 #include "MainGame.h"
+#include "StageSelectState.h"
 
 #define CAMERA TheMainGame::Instance()->_camera
 
@@ -101,7 +102,7 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 			//five
 			if (mouseCoords.x > 1280 && mouseCoords.x < 1280 + 320)
 			{
-				this->gameStateManager->Switch(std::shared_ptr<GameState>(new StartScreenState(gameStateManager)));
+				this->gameStateManager->Switch(std::shared_ptr<GameState>(new StageSelectState(gameStateManager)));
 			}
 		}
 	}

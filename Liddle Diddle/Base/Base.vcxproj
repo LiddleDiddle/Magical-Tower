@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClCompile Include="Assignment4GameState.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="BasicState.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="DefaultGameStateManager.cpp" />
@@ -114,6 +115,7 @@
   <ItemGroup>
     <ClInclude Include="Assignment4GameState.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="BasicState.h" />
     <ClInclude Include="box.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="DefaultGameStateManager.h" />
