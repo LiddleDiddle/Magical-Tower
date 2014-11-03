@@ -22,6 +22,9 @@
     <Filter Include="Assignment 4">
       <UniqueIdentifier>{0fa81cf9-e9dc-4161-a082-a44b26119997}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XMLStuff">
+      <UniqueIdentifier>{e29631a6-938a-4111-a771-38bde4d0c899}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,6 +99,15 @@
     <ClCompile Include="BasicState.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>XMLStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>XMLStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="RemedyMenuState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -165,6 +177,15 @@
       <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="BasicState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>XMLStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>XMLStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="RemedyMenuState.h">
       <Filter>States</Filter>
     </ClInclude>
   </ItemGroup>

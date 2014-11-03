@@ -1,5 +1,6 @@
 #include "MainMenuGameState.h"
 #include "TylerMenuState.h"
+#include "RemedyMenuState.h"
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
@@ -44,8 +45,7 @@ void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputM
 		}
 		if (mouseCoords.x < _RemedyRect.x + 100 && mouseCoords.x > _RemedyRect.x -100 && mouseCoords.y > _RemedyRect.y - 50 && mouseCoords.y < _RemedyRect.y +50)
 		{
-			//this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
-			std::cout << "Remedy\n"; 
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new RemedyMenuState(gameStateManager)));
 		}
 		if (glm::length(glm::vec2(mouseCoords.x,mouseCoords.y) - glm::vec2(_KingRect.x,_KingRect.y)) <= 150)
 		{
