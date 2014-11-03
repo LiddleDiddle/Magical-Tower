@@ -27,6 +27,7 @@ void RemedyMenuState::Entered()
 	LevelLoader loader;
 	level = loader.LoadLevel();
 	mousePressed = false;
+	changed = false;
 }
 
 void RemedyMenuState::Exiting()
@@ -85,23 +86,42 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 		}
 	}
 	
-	if (!mousePressed)
-	{
+	//if (!mousePressed)
+	//{
+		//mousePressed = true;
 		if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
 		{
-			mousePressed = true;
 			glm::vec2 mouseCoords = _inputManager.getMouseCoords();
 			mouseCoords = CAMERA.convertScreenToWorld(mouseCoords);
-			
-			glm::vec2 tileCoords;
+							
 			tileCoords.x = floor((mouseCoords.x / 40));
 			tileCoords.y = floor((mouseCoords.y / 40));
-			level[(int)tileCoords.y][(int)tileCoords.x]++;
-			level[(int)tileCoords.y][(int)tileCoords.x] %= 2;
-		}
-	}
+
+			if (!changed)
+			{
+				tempX = tileCoords.x;
+				tempY = tileCoords.y;
+				level[(int)tileCoords.y][(int)tileCoords.x]++;
+				level[(int)tileCoords.y][(int)tileCoords.x] %= 2;
+				changed = true;
+			}
+
+			if (changed)
+			{
+				if (tempX != tileCoords.x || tempY != tileCoords.y)
+				{
+					changed = false;
+				}
+			}
+		}						
+	//}
 	if (!_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+	{
 		mousePressed = false;
+		tileCoords.x = -1;
+		tileCoords.y = -1;
+	}
+	
 }
 
 void RemedyMenuState::SaveXML(int** level)
