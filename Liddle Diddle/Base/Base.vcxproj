@@ -101,14 +101,17 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="IntroGameState.cpp" />
+    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="MainMenuGameState.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Modality.cpp" />
     <ClCompile Include="MultiCharacterSelectState.cpp" />
+    <ClCompile Include="RemedyMenuState.cpp" />
     <ClCompile Include="StageSelectState.cpp" />
     <ClCompile Include="StartScreenState.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="TylerMenuState.cpp" />
     <ClCompile Include="Updateable.cpp" />
   </ItemGroup>
@@ -127,13 +130,16 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="IntroGameState.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MainMenuGameState.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Modality.h" />
     <ClInclude Include="MultiCharacterSelectState.h" />
+    <ClInclude Include="RemedyMenuState.h" />
     <ClInclude Include="StageSelectState.h" />
     <ClInclude Include="StartScreenState.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="TylerMenuState.h" />
     <ClInclude Include="Updateable.h" />
   </ItemGroup>
