@@ -1,6 +1,4 @@
 #include "LevelLoader.h"
-#include "Drawable.h"
-#include <Bengine/ResourceManager.h>
 #include <iostream>
 
 
@@ -60,21 +58,3 @@ int** LevelLoader::LoadLevel()
 	}
 	return level;
 }
-
-void LevelLoader::DrawLevel(int** level)
-{
-	//1920x1080
-	
-	/*for (int i = 0; i < HEIGHT; i++)
-	{
-		for (int j = 0; j < WIDTH; j++)
-		{
-			if (level[i][j] == 1)
-			{
-				
-			}
-		}
-	}*/
-
-}
-

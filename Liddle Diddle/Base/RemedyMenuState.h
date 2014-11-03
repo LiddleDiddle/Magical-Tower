@@ -7,9 +7,7 @@
 #include <Bengine/InputManager.h>
 #include <Bengine/Camera2D.h>
 #include <Bengine/ResourceManager.h>
-#include "tinyxml2.h"
 
-using namespace tinyxml2;
 
 
 class RemedyMenuState : public GameState, public virtual Updateable, public virtual Drawable
@@ -25,7 +23,7 @@ public:
 	void Entered();
 
 	/// <summary>Called when the game state is about to be exited</summary>
-	public: void Exiting();
+	void Exiting();
 
 	/// <summary>Updates the time in the game state's simulation</summary>
 	/// <param name="elapsedTime">Time by which to advance the simulation</param>
@@ -33,8 +31,14 @@ public:
 
 	void Draw(Bengine::SpriteBatch& spriteBatch);
 	void ProcessInput(Bengine::InputManager _inputManager);
+	void SaveXML(int** level);
+	
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
 	int** level;
+	bool mousePressed;
+	bool changed;
+	glm::vec2 tileCoords;
+	float tempX, tempY;
 };
