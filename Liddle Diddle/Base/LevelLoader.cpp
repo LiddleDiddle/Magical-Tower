@@ -49,12 +49,10 @@ int** LevelLoader::LoadLevel()
 			int value;
 			tileElement->QueryIntText(&value);
 			level[h][w] = value;
-			std::cout << level[h][w] << " ";
 			w++;
 		}
 		h++;
 		w = 0;
-		std::cout << std::endl;
 	}
 	return level;
 }

@@ -17,9 +17,9 @@ using namespace tinyxml2;
 
 
 RemedyMenuState::RemedyMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
-    gameStateManager(gameStateManager) 
+	gameStateManager(gameStateManager) 
 {
-	
+
 }
 
 void RemedyMenuState::Entered()
@@ -28,6 +28,7 @@ void RemedyMenuState::Entered()
 	level = loader.LoadLevel();
 	mousePressed = false;
 	changed = false;
+	
 }
 
 void RemedyMenuState::Exiting()
@@ -47,9 +48,9 @@ void RemedyMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	Bengine::Color color;
 	color.r = 255;
-    color.g = 255;
-    color.b = 255;
-    color.a = 255;
+	color.g = 255;
+	color.b = 255;
+	color.a = 255;
 
 	for (int i = 0; i < HEIGHT; ++i)
 	{
@@ -73,7 +74,6 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 	if (_inputManager.isKeyPressed(SDLK_s))
 	{
 		SaveXML(level);
-		std::cout << "S";
 	}
 	if (_inputManager.isKeyPressed(SDLK_SPACE))
 	{
@@ -85,43 +85,71 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 			}
 		}
 	}
-	
-	//if (!mousePressed)
-	//{
-		//mousePressed = true;
-		if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+
+	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT) || _inputManager.isKeyPressed(SDL_BUTTON_RIGHT))
+	{
+		if (!mousePressed)
 		{
-			glm::vec2 mouseCoords = _inputManager.getMouseCoords();
-			mouseCoords = CAMERA.convertScreenToWorld(mouseCoords);
-							
-			tileCoords.x = floor((mouseCoords.x / 40));
-			tileCoords.y = floor((mouseCoords.y / 40));
-
-			if (!changed)
+			int** tempArray = new int*[HEIGHT];
+			for (int i = 0; i < HEIGHT; ++i)
 			{
-				tempX = tileCoords.x;
-				tempY = tileCoords.y;
-				level[(int)tileCoords.y][(int)tileCoords.x]++;
-				level[(int)tileCoords.y][(int)tileCoords.x] %= 2;
-				changed = true;
+				tempArray[i] = new int[WIDTH];
 			}
-
-			if (changed)
+			for (int i = 0; i < HEIGHT; ++i)
 			{
-				if (tempX != tileCoords.x || tempY != tileCoords.y)
+				for (int j = 0; j < WIDTH; ++j)
 				{
-					changed = false;
+					tempArray[i][j] = 0;
 				}
 			}
-		}						
-	//}
-	if (!_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+			mousePressed = true;
+			tileChangedArray = tempArray;
+		}
+
+		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
+		mouseCoords = CAMERA.convertScreenToWorld(mouseCoords);
+
+		tileCoords.x = floor((mouseCoords.x / 40));
+		tileCoords.y = floor((mouseCoords.y / 40));
+
+		if (!changed)
+		{
+			tempX = tileCoords.x;
+			tempY = tileCoords.y;
+			if (tileChangedArray[(int)tileCoords.y][(int)tileCoords.x] == 0)
+			{
+				if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+				{
+					level[(int)tileCoords.y][(int)tileCoords.x]++;
+				}
+				else
+				{
+					level[(int)tileCoords.y][(int)tileCoords.x]--;
+					if (level[(int)tileCoords.y][(int)tileCoords.x] < 0)
+					{
+						level[(int)tileCoords.y][(int)tileCoords.x] += 2; //add number of tiles
+					}
+				}
+				level[(int)tileCoords.y][(int)tileCoords.x] %= 2; //modulus number of tiles
+				changed = true;
+				tileChangedArray[(int)tileCoords.y][(int)tileCoords.x] = 1;
+			}
+		}
+
+		if (changed)
+		{
+			if (tempX != tileCoords.x || tempY != tileCoords.y)
+			{
+				changed = false;
+			}
+		}
+	}						
+	if (!_inputManager.isKeyPressed(SDL_BUTTON_LEFT) && !_inputManager.isKeyPressed(SDL_BUTTON_RIGHT))
 	{
 		mousePressed = false;
-		tileCoords.x = -1;
-		tileCoords.y = -1;
+		changed = false;
 	}
-	
+
 }
 
 void RemedyMenuState::SaveXML(int** level)
@@ -145,10 +173,10 @@ void RemedyMenuState::SaveXML(int** level)
 		h++;
 		w = 0;
 	}
-	
+
 	xmlDoc.SaveFile("TestLevel.xml");
 	std::cout << "Level Saved!";
 	return;
-	
+
 }
 
