@@ -59,7 +59,7 @@ void GameWorld::Update(float time)
 void GameWorld::Draw ( Bengine::SpriteBatch& spriteBatch )
 {
 
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;

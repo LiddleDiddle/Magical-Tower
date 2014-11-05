@@ -34,7 +34,7 @@ void MainMenuState::Update(float elapsedTime, Bengine::InputManager& inputManage
 
 void MainMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
-	Bengine::Color hoverColor;
+	Bengine::ColorRGBA8 hoverColor;
 	hoverColor.r = (sin(_time * 1) + 1)/2 * 255;
     hoverColor.g = (sin(_time * 2) + 1)/2 * 255;
     hoverColor.b = (sin(_time * 3) + 1)/2 * 255;
@@ -49,7 +49,7 @@ void MainMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 	static Bengine::GLTexture extras = Bengine::ResourceManager::getTexture("Textures/MainMenu/extrasText.png");
 	static Bengine::GLTexture exit = Bengine::ResourceManager::getTexture("Textures/MainMenu/exitText.png");
 
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;
@@ -92,7 +92,7 @@ void MainMenuState::checkCollision(Bengine::InputManager inputManager){
 	{
 		if(inputManager.getMouseCoords().x < rects[i].x + 100 &&  inputManager.getMouseCoords().x > rects[i].x - 100 && 720 - inputManager.getMouseCoords().y < rects[i].y + 25 && 720 - inputManager.getMouseCoords().y > rects[i].y - 25 )
 		{
-			if (inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+			if (inputManager.isKeyDown(SDL_BUTTON_LEFT))
 			{
 				switch (i)
 				{

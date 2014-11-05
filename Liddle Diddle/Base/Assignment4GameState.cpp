@@ -24,10 +24,10 @@ void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inpu
 {
 	gameWorld.Update(elapsedTime / 1000);   //fix this
 	
-	if (inputManager.isKeyPressed(SDLK_SPACE)) {
+	if (inputManager.isKeyDown(SDLK_SPACE)) {
 		gameWorld.OnKeyEvent();
 	}
-	if (inputManager.isKeyPressed(SDLK_r)) {
+	if (inputManager.isKeyDown(SDLK_r)) {
 		gameWorld.endIt();
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 	}

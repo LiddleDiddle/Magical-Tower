@@ -1,11 +1,44 @@
-﻿Build started 11/4/2014 1:03:13 AM.
-     1>Project "C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" on node 2 (Build target(s)).
-       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+﻿Build started 11/5/2014 11:01:15 AM.
+     1>Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt RemedyMenuState.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Assignment4GameState.cpp Ball.cpp BasicState.cpp Bullet.cpp DefaultGameStateManager.cpp Drawable.cpp GameObject.cpp GameWorld.cpp Ground.cpp IntroGameState.cpp MainGame.cpp MainMenuGameState.cpp MainMenuState.cpp MultiCharacterSelectState.cpp RemedyMenuState.cpp StageSelectState.cpp StartScreenState.cpp TylerMenuState.cpp Updateable.cpp box.cpp main.cpp
+         TylerMenuState.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\tylermenustate.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+         StartScreenState.cpp
+         StageSelectState.cpp
          RemedyMenuState.cpp
+         MultiCharacterSelectState.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\multicharacterselectstate.cpp(186): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\multicharacterselectstate.cpp(190): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\multicharacterselectstate.cpp(194): warning C4305: 'argument' : truncation from 'double' to 'float'
+         MainMenuState.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\mainmenustate.cpp(38): warning C4244: '=' : conversion from 'float' to 'GLubyte', possible loss of data
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\mainmenustate.cpp(39): warning C4244: '=' : conversion from 'float' to 'GLubyte', possible loss of data
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\mainmenustate.cpp(40): warning C4244: '=' : conversion from 'float' to 'GLubyte', possible loss of data
+         MainMenuGameState.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\mainmenugamestate.cpp(74): warning C4305: '+=' : truncation from 'double' to 'float'
+         MainGame.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\maingame.cpp(106): warning C4244: 'argument' : conversion from 'Sint32' to 'float', possible loss of data
+         Assignment4GameState.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\assignment4gamestate.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         Generating Code...
+         Compiling...
+         main.cpp
+         Updateable.cpp
+         IntroGameState.cpp
+         DefaultGameStateManager.cpp
+         BasicState.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         box.cpp
+         Ground.cpp
+         GameWorld.cpp
+         GameObject.cpp
+         Drawable.cpp
+         Bullet.cpp
+         Ball.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Debug\Game.exe" /INCREMENTAL /NOLOGO glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib Bengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Debug\Game.lib" /MACHINE:X86 Debug\Assignment4GameState.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.exe" /INCREMENTAL /NOLOGO glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib Bengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.lib" /MACHINE:X86 Debug\Assignment4GameState.obj
          Debug\Ball.obj
          Debug\BasicState.obj
          Debug\box.obj
@@ -32,9 +65,61 @@
          Debug\tinyxml2.obj
          Debug\TylerMenuState.obj
          Debug\Updateable.obj
-         Base.vcxproj -> C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Debug\Game.exe
-     1>Done Building Project "C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" (Build target(s)).
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>liquidfun.lib(b2DistanceJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2DistanceJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2FrictionJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2FrictionJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2GearJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2GearJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Joint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Joint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2MotorJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2MotorJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2MouseJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2MouseJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2PrismaticJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2PrismaticJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2PulleyJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2PulleyJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2RevoluteJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2RevoluteJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2RopeJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2RopeJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2WeldJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2WeldJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2WheelJoint.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2WheelJoint.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2CircleContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2CircleContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Contact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Contact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ContactSolver.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ContactSolver.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2PolygonAndCircleContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2PolygonAndCircleContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2EdgeAndCircleContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2EdgeAndCircleContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2EdgeAndPolygonContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2EdgeAndPolygonContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ChainAndCircleContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ChainAndCircleContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ChainAndPolygonContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ChainAndPolygonContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2PolygonContact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2PolygonContact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Body.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Body.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ContactManager.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ContactManager.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Fixture.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Fixture.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Island.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Island.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2World.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2World.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2WorldCallbacks.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2WorldCallbacks.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2BlockAllocator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2BlockAllocator.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Draw.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Draw.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2FreeList.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2FreeList.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Math.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Math.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Settings.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Settings.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2StackAllocator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2StackAllocator.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Timer.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Timer.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2TrackedBlock.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2TrackedBlock.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2CircleShape.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2CircleShape.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2EdgeShape.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2EdgeShape.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ChainShape.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ChainShape.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2PolygonShape.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2PolygonShape.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2BroadPhase.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2BroadPhase.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2CollideCircle.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2CollideCircle.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2CollideEdge.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2CollideEdge.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2CollidePolygon.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2CollidePolygon.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Collision.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Collision.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Distance.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Distance.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2DynamicTree.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2DynamicTree.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2TimeOfImpact.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2TimeOfImpact.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2Particle.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2Particle.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ParticleGroup.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ParticleGroup.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2ParticleSystem.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2ParticleSystem.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+     1>liquidfun.lib(b2VoronoiDiagram.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'liquidfun.lib(b2VoronoiDiagram.obj)' or at 'C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\vc110.pdb'; linking object as if no debug info
+         Base.vcxproj -> C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.exe
+     1>Done Building Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.18
+Time Elapsed 00:00:10.88

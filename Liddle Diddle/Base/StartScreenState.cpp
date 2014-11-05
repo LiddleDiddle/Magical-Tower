@@ -21,7 +21,7 @@ void StartScreenState::Exiting() {
 
 void StartScreenState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
 
-	if(_inputManager.isKeyPressed(SDLK_SPACE))
+	if(_inputManager.isKeyDown(SDLK_SPACE))
 	{
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuState(gameStateManager)));
 	}
@@ -30,7 +30,7 @@ void StartScreenState::Update(float elapsedTime, Bengine::InputManager& _inputMa
 void StartScreenState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;

@@ -45,7 +45,7 @@ void TylerMenuState::Update(float elapsedTime, Bengine::InputManager& _inputMana
 void TylerMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;
@@ -61,10 +61,10 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 
 	const float CAMERA_SPEED = 4.0f;
 
-    if (_inputManager.isKeyPressed(SDLK_a) ) {
+    if (_inputManager.isKeyDown(SDLK_a) ) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
     }
-    if (_inputManager.isKeyPressed(SDLK_d)) {
+    if (_inputManager.isKeyDown(SDLK_d)) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
     }
 
@@ -74,7 +74,7 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 		CAMERA.setPosition(glm::vec2(_menuPositions.back().x + 160 - 640, 360));
 	}
 	if (_mousePressed == false){
-		if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)){
+		if (_inputManager.isKeyDown(SDL_BUTTON_LEFT)){
 			_mousePressed = true;
 			glm::vec2 mouseCoords = _inputManager.getMouseCoords();
 			mouseCoords = CAMERA.convertScreenToWorld(mouseCoords);
@@ -107,6 +107,6 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 		}
 	}
    // std::cout << "MainMenuState updated" << std::endl;
-	if (!_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+	if (!_inputManager.isKeyDown(SDL_BUTTON_LEFT))
 		_mousePressed = false;
 }

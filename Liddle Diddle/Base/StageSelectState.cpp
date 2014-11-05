@@ -44,7 +44,7 @@ void StageSelectState::Update(float elapsedTime, Bengine::InputManager& inputMan
 void StageSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;

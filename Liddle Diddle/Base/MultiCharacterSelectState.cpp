@@ -57,21 +57,21 @@ void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager&
 		_direction[i] = Direction::NEUTRAL;
 	}
 
-	if(_inputManager.isKeyPressed(SDLK_UP)){
+	if(_inputManager.isKeyDown(SDLK_UP)){
 		for (int i = 0; i < 4; i++)
 		{
 			_direction[i] = Direction::UP;
 		}
 	}
 
-	if(_inputManager.isKeyPressed(SDLK_DOWN)){
+	if(_inputManager.isKeyDown(SDLK_DOWN)){
 		for (int i = 0; i < 4; i++)
 		{
 			_direction[i] = Direction::DOWN;
 		}
 	}
 
-	if(_inputManager.isKeyPressed(SDLK_UP) && _time >= 200){
+	if(_inputManager.isKeyDown(SDLK_UP) && _time >= 200){
 		for (int i = 0; i < 4; i++)
 		{
 			if(_joined[i])
@@ -82,7 +82,7 @@ void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager&
 		}
 	}
 
-	if(_inputManager.isKeyPressed(SDLK_DOWN) && _time >= 200){
+	if(_inputManager.isKeyDown(SDLK_DOWN) && _time >= 200){
 		for (int i = 0; i < 4; i++)
 		{
 			_character[i] -= 1;
@@ -92,7 +92,7 @@ void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager&
 		}
 	}
 
-	if(_inputManager.isKeyPressed(SDLK_RETURN) && _time >= 200){
+	if(_inputManager.isKeyDown(SDLK_RETURN) && _time >= 200){
 		for (int i = 0; i < 4; i++)
 		{
 			if(!_joined[i]){
@@ -105,7 +105,7 @@ void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager&
 		}
 	}
 
-	if(_inputManager.isKeyPressed(SDLK_BACKSPACE) && _time >= 200){
+	if(_inputManager.isKeyDown(SDLK_BACKSPACE) && _time >= 200){
 		for (int i = 0; i < 4; i++)
 		{
 			if(!_joined[i])
@@ -127,13 +127,13 @@ void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager&
 void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;
     color.a = 255;
 
-	Bengine::Color green;
+	Bengine::ColorRGBA8 green;
 	green.r = 0;
     green.g = 255;
     green.b = 0;

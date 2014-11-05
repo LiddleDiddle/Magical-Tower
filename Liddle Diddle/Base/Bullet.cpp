@@ -17,7 +17,7 @@ Bullet::~Bullet(void)
 void Bullet::draw(Bengine::SpriteBatch& spriteBatch){
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/PS4_Circle.png");
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
     color.g = 255;
     color.b = 255;

@@ -46,7 +46,7 @@ void RemedyMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/TestTile.png");
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::Color color;
+	Bengine::ColorRGBA8 color;
 	color.r = 255;
 	color.g = 255;
 	color.b = 255;
@@ -66,16 +66,16 @@ void RemedyMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 {
-	if (_inputManager.isKeyPressed(SDLK_BACKSPACE))
+	if (_inputManager.isKeyDown(SDLK_BACKSPACE))
 	{
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
 		return;
 	}
-	if (_inputManager.isKeyPressed(SDLK_s))
+	if (_inputManager.isKeyDown(SDLK_s))
 	{
 		SaveXML(level);
 	}
-	if (_inputManager.isKeyPressed(SDLK_SPACE))
+	if (_inputManager.isKeyDown(SDLK_SPACE))
 	{
 		for(int i = 0; i < HEIGHT; ++i)
 		{
@@ -86,7 +86,7 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 		}
 	}
 
-	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT) || _inputManager.isKeyPressed(SDL_BUTTON_RIGHT))
+	if (_inputManager.isKeyDown(SDL_BUTTON_LEFT) || _inputManager.isKeyDown(SDL_BUTTON_RIGHT))
 	{
 		if (!mousePressed)
 		{
@@ -118,7 +118,7 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 			tempY = tileCoords.y;
 			if (tileChangedArray[(int)tileCoords.y][(int)tileCoords.x] == 0)
 			{
-				if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+				if (_inputManager.isKeyDown(SDL_BUTTON_LEFT))
 				{
 					level[(int)tileCoords.y][(int)tileCoords.x]++;
 				}
@@ -144,7 +144,7 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 			}
 		}
 	}						
-	if (!_inputManager.isKeyPressed(SDL_BUTTON_LEFT) && !_inputManager.isKeyPressed(SDL_BUTTON_RIGHT))
+	if (!_inputManager.isKeyDown(SDL_BUTTON_LEFT) && !_inputManager.isKeyDown(SDL_BUTTON_RIGHT))
 	{
 		mousePressed = false;
 		changed = false;
