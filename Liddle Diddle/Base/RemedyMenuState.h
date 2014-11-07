@@ -38,9 +38,12 @@ private:
 	std::shared_ptr<GameStateManager> gameStateManager;
 	int** level;
 	int** tileChangedArray;
+	int numTiles;
+	int sameTile;
 	bool mousePressed;
 	bool changed;
 	bool tempInitialized;
+	bool multipleTilesChanged;
 	glm::vec2 tileCoords;
 	float tempX, tempY;
 };

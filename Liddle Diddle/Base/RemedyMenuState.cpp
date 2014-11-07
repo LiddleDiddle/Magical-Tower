@@ -28,6 +28,10 @@ void RemedyMenuState::Entered()
 	level = loader.LoadLevel();
 	mousePressed = false;
 	changed = false;
+	numTiles = 3;
+	sameTile = 0;
+	multipleTilesChanged = false;
+
 	
 }
 
@@ -44,7 +48,10 @@ void RemedyMenuState::Update(float elapsedTime, Bengine::InputManager& inputMana
 void RemedyMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 
-	static Bengine::GLTexture spook = Bengine::ResourceManager::getTexture("Textures/TestTile.png");
+	static Bengine::GLTexture tile1 = Bengine::ResourceManager::getTexture("Textures/TestTile.png");
+	static Bengine::GLTexture tile2 = Bengine::ResourceManager::getTexture("Textures/Tile2.png");
+	static Bengine::GLTexture tile3 = Bengine::ResourceManager::getTexture("Textures/Tile3.png");
+
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	Bengine::ColorRGBA8 color;
 	color.r = 255;
@@ -58,7 +65,15 @@ void RemedyMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 		{
 			if (level[i][j] == 1)
 			{
-				spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/WIDTH/2 + j*CAMERA.getScreenDimensions().x/WIDTH,CAMERA.getScreenDimensions().y/HEIGHT/2 + i*CAMERA.getScreenDimensions().y/HEIGHT,CAMERA.getScreenDimensions().x/WIDTH, CAMERA.getScreenDimensions().y/HEIGHT), 0.0f, uv, spook.id, 0.0f, color);
+				spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/WIDTH/2 + j*CAMERA.getScreenDimensions().x/WIDTH,CAMERA.getScreenDimensions().y/HEIGHT/2 + i*CAMERA.getScreenDimensions().y/HEIGHT,CAMERA.getScreenDimensions().x/WIDTH, CAMERA.getScreenDimensions().y/HEIGHT), 0.0f, uv, tile1.id, 0.0f, color);
+			}
+			else if (level[i][j] == 2)
+			{
+				spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/WIDTH/2 + j*CAMERA.getScreenDimensions().x/WIDTH,CAMERA.getScreenDimensions().y/HEIGHT/2 + i*CAMERA.getScreenDimensions().y/HEIGHT,CAMERA.getScreenDimensions().x/WIDTH, CAMERA.getScreenDimensions().y/HEIGHT), 0.0f, uv, tile2.id, 0.0f, color);
+			}
+			else if (level[i][j] == 3)
+			{
+				spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/WIDTH/2 + j*CAMERA.getScreenDimensions().x/WIDTH,CAMERA.getScreenDimensions().y/HEIGHT/2 + i*CAMERA.getScreenDimensions().y/HEIGHT,CAMERA.getScreenDimensions().x/WIDTH, CAMERA.getScreenDimensions().y/HEIGHT), 0.0f, uv, tile3.id, 0.0f, color);
 			}
 		}
 	}
@@ -120,19 +135,31 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 			{
 				if (_inputManager.isKeyDown(SDL_BUTTON_LEFT))
 				{
-					level[(int)tileCoords.y][(int)tileCoords.x]++;
+					if (!multipleTilesChanged)
+						level[(int)tileCoords.y][(int)tileCoords.x]++;
+					else
+						level[(int)tileCoords.y][(int)tileCoords.x] = sameTile;	
 				}
 				else
 				{
-					level[(int)tileCoords.y][(int)tileCoords.x]--;
-					if (level[(int)tileCoords.y][(int)tileCoords.x] < 0)
+					if (!multipleTilesChanged)
 					{
-						level[(int)tileCoords.y][(int)tileCoords.x] += 2; //add number of tiles
+						level[(int)tileCoords.y][(int)tileCoords.x]--;
+						if (level[(int)tileCoords.y][(int)tileCoords.x] < 0)
+						{
+							level[(int)tileCoords.y][(int)tileCoords.x] += (numTiles + 1);
+						}
+					}
+					else
+					{
+						level[(int)tileCoords.y][(int)tileCoords.x] = sameTile;
 					}
 				}
-				level[(int)tileCoords.y][(int)tileCoords.x] %= 2; //modulus number of tiles
+				level[(int)tileCoords.y][(int)tileCoords.x] %= (numTiles + 1); //modulus number of tiles
 				changed = true;
+				sameTile = level[(int)tileCoords.y][(int)tileCoords.x];
 				tileChangedArray[(int)tileCoords.y][(int)tileCoords.x] = 1;
+				multipleTilesChanged = true;
 			}
 		}
 
@@ -148,6 +175,7 @@ void RemedyMenuState::ProcessInput(Bengine::InputManager _inputManager)
 	{
 		mousePressed = false;
 		changed = false;
+		multipleTilesChanged = false;
 	}
 
 }
