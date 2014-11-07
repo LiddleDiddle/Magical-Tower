@@ -4,6 +4,7 @@
 #include <SDL2\SDL.h>
 #include "MainMenuGameState.h"
 #include "TylerMenuState.h"
+#include "RemedyMenuState.h"
 MainMenuState::MainMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
@@ -104,8 +105,8 @@ void MainMenuState::checkCollision(Bengine::InputManager inputManager){
 					this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
 					return;
 					break;
-				case 2 :
-					this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+				case 2 : // map editor
+					this->gameStateManager->Switch(std::shared_ptr<GameState>(new RemedyMenuState(gameStateManager)));
 					return;
 					break;
 				case 3 :

@@ -38,6 +38,9 @@ private:
 	std::shared_ptr<GameStateManager> gameStateManager;
 	int** level;
 	int** tileChangedArray;
+	int numTiles;
+	int sameTile;
+	bool multipleTilesChanged;
 	bool mousePressed;
 	bool changed;
 	bool tempInitialized;
