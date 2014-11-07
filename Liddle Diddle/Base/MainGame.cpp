@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "IntroGameState.h"
+#include "GeneralManager.h"
 
 MainGame* MainGame::s_pInstance = 0;
 
@@ -40,7 +41,7 @@ void MainGame::initSystems() {
     Bengine::init();
 
     _window.create("Game Engine", _screenWidth, _screenHeight, SDL_WINDOW_RESIZABLE);
-
+	TheGeneralManager::Instance()->init();
     initShaders();
 
     _spriteBatch.init();
@@ -50,6 +51,9 @@ void MainGame::initSystems() {
 	// Set the initial game state the game will use after it has started
 	std::cout << "*** Pushing intro game state onto the stack ***" << std::endl;
 	gameStateManager->Push(std::make_shared<IntroGameState>(gameStateManager));
+
+	
+	
 }
 
 void MainGame::initShaders() {
@@ -68,9 +72,11 @@ void MainGame::gameLoop() {
        
         _fpsLimiter.begin();
 		processInput();
-
-
+		
+		TheGeneralManager::Instance()->updatePlayers();
+		TheGeneralManager::Instance()->processPlayerInputs();
         _camera.update();
+		
 
 		gameStateManager->Update(_fpsLimiter.getFrameTime(), _inputManager);
 		
@@ -119,6 +125,9 @@ void MainGame::processInput() {
 				break;
         }
     }
+
+	
+
 /*
     if (_inputManager.isKeyPressed(SDLK_w)) {
         _camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, CAMERA_SPEED));

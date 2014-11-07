@@ -1,9 +1,11 @@
 #include "InputManager.h"
 
+
 namespace Bengine {
 
 InputManager::InputManager() : _mouseCoords(0.0f)
 {
+
 }
 
 

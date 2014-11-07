@@ -45,6 +45,7 @@ private:
 	 MainGame();
     ~MainGame();
 	
+
     static MainGame* s_pInstance;
 
     void initSystems();
@@ -65,7 +66,6 @@ private:
     Bengine::InputManager _inputManager;
     Bengine::FpsLimiter _fpsLimiter;
     
-	std::vector<Bullet> _bullets;
 
     float _maxFPS;
     float _fps;
