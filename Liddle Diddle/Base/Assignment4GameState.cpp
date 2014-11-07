@@ -22,12 +22,12 @@ void Assignment4GameState::Exiting() {
 
 void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inputManager) 
 {
-	gameWorld.Update(elapsedTime / 1000);   //fix this
+	gameWorld.Update(elapsedTime);   //fix this
 	
-	if (inputManager.isKeyDown(SDLK_SPACE)) {
+	if (inputManager.isKeyPressed(SDLK_SPACE)) {
 		gameWorld.OnKeyEvent();
 	}
-	if (inputManager.isKeyDown(SDLK_r)) {
+	if (inputManager.isKeyPressed(SDLK_r)) {
 		gameWorld.endIt();
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
 	}

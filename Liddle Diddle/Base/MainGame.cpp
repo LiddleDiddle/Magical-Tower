@@ -67,6 +67,10 @@ void MainGame::initShaders() {
 //This is the main game loop for our program
 void MainGame::gameLoop() {
 
+	const float DELTA_TIME = 1.0f/60.0f;
+	float currentTime = SDL_GetTicks() / 1000.0f;
+	float accumulator = 0.0f;
+
     //Will loop until we set _gameState to EXIT
     while (_gameMode != GameMode::EXIT) {
        
@@ -77,8 +81,22 @@ void MainGame::gameLoop() {
 		TheGeneralManager::Instance()->processPlayerInputs();
         _camera.update();
 		
+		float newTime = SDL_GetTicks() / 1000.0f;
+	   float frameTime = newTime - currentTime;
+	   currentTime = newTime;
+	   if ( frameTime > 0.25 )
+        frameTime = 0.25;
+		currentTime = newTime;
 
-		gameStateManager->Update(_fpsLimiter.getFrameTime(), _inputManager);
+	   accumulator += frameTime;
+
+	   while (accumulator >= DELTA_TIME)
+	   {
+		   gameStateManager->Update(DELTA_TIME, _inputManager);
+		   accumulator -= DELTA_TIME;
+	   }
+
+		
 		
 		_inputManager.update();
 		drawGame();

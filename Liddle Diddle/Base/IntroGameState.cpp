@@ -24,7 +24,7 @@ void IntroGameState::Update(float elapsedTime, Bengine::InputManager& inputManag
 	else
 		_startTime = true;
 
-	if(_time >= 2000)
+	if(_time >= 2)
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
   }
 

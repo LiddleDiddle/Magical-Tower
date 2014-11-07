@@ -70,5 +70,5 @@ void GameWorld::Draw ( Bengine::SpriteBatch& spriteBatch )
 
 void GameWorld::OnKeyEvent()
 {
-	objects.back()->addForceCenter(200,100);
+	objects.back()->addForceCenter(500,500);
 }
