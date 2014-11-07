@@ -30,77 +30,77 @@ void StartScreenState::Update(float elapsedTime, Bengine::InputManager& inputMan
 	{
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_A))
 		{
-			printf("player %i pressed X\n", i);
+			printf("player %i pressed X\n", i + 1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_B))
 		{
-			printf("player %i pressed circle\n", i);
+			printf("player %i pressed circle\n", i + 1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_X))
 		{
-			printf("player %i pressed square\n", i);
+			printf("player %i pressed square\n", i + 1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_Y))
 		{
-			printf("player %i pressed Triangle\n", i);
+			printf("player %i pressed Triangle\n", i + 1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_BACK))
 		{
-			printf("player %i pressed share\n", i);
+			printf("player %i pressed share\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_GUIDE))
 		{
-			printf("player %i pressed guide\n", i);
+			printf("player %i pressed guide\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_START))
 		{
-			printf("player %i pressed options\n", i);
+			printf("player %i pressed options\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_LEFTSTICK))
 		{
-			printf("player %i pressed left stick\n", i);
+			printf("player %i pressed left stick\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_RIGHTSTICK))
 		{
-			printf("player %i pressed right stick\n", i);
+			printf("player %i pressed right stick\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_LEFTSHOULDER))
 		{
-			printf("player %i pressed L1\n", i);
+			printf("player %i pressed L1\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER))
 		{
-			printf("player %i pressed R1\n", i);
+			printf("player %i pressed R1\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_UP))
 		{
-			printf("player %i pressed up\n", i);
+			printf("player %i pressed up\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_DOWN))
 		{
-			printf("player %i pressed down\n", i);
+			printf("player %i pressed down\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_LEFT))
 		{
-			printf("player %i pressed left\n", i);
+			printf("player %i pressed left\n", i+1);
 		}
 
 		if(TheGeneralManager::Instance()->_players[i].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_RIGHT))
 		{
-			printf("player %i pressed right\n", i);
+			printf("player %i pressed right\n", i+1);
 		}
 	}
 }
