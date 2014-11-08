@@ -27,10 +27,12 @@ public:
 
 	void Draw(Bengine::SpriteBatch& spriteBatch);
 	void checkCollision(Bengine::InputManager inputManager);
+	void processControllerInputs();
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
 	glm::vec4* rects;
 	float _time;
 	int _hover;
+	int _currentlyHighlighted;
 };
 

@@ -18,6 +18,9 @@ void GeneralManager::init()
 		}
 	}
 	_numPlayers = _players.size();
+
+	MenuController = -1;
+
 }
 
 GeneralManager::~GeneralManager(void)

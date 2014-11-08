@@ -4,6 +4,12 @@
 #include <SDL2\SDL.h>
 #include "MainMenuGameState.h"
 #include "TylerMenuState.h"
+#include "GeneralManager.h"
+#include "MultiCharacterSelectState.h"
+#include "StartScreenState.h"
+
+#define MENUCONTROLLER TheGeneralManager::Instance()->MenuController
+
 MainMenuState::MainMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
@@ -18,7 +24,7 @@ void MainMenuState::Entered() {
 	{
 		rects[i] = glm::vec4(1000,720 - (i + 1) * 45 * 2, 200, 50);
 	}
-	_hover = 7;
+	_hover = 0;
 	
 					
 }
@@ -28,17 +34,17 @@ void MainMenuState::Exiting() {
 }
 
 void MainMenuState::Update(float elapsedTime, Bengine::InputManager& inputManager) {
-	_time += elapsedTime/400;
+	_time += elapsedTime;
 	checkCollision(inputManager);
+	if(MENUCONTROLLER != -1)
+		processControllerInputs();
 }
 
 void MainMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
-	Bengine::ColorRGBA8 hoverColor;
-	hoverColor.r = (sin(_time * 1) + 1)/2 * 255;
-    hoverColor.g = (sin(_time * 2) + 1)/2 * 255;
-    hoverColor.b = (sin(_time * 3) + 1)/2 * 255;
-    hoverColor.a = 255;
+	
+	Bengine::ColorRGBA8 hoverColor(255,255,255,255);
+	Bengine::ColorRGBA8 color(150,150,150,255);
 
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	static Bengine::GLTexture singlePlayer = Bengine::ResourceManager::getTexture("Textures/MainMenu/singlePlayerText.png");
@@ -49,11 +55,7 @@ void MainMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 	static Bengine::GLTexture extras = Bengine::ResourceManager::getTexture("Textures/MainMenu/extrasText.png");
 	static Bengine::GLTexture exit = Bengine::ResourceManager::getTexture("Textures/MainMenu/exitText.png");
 
-	Bengine::ColorRGBA8 color;
-	color.r = 255;
-    color.g = 255;
-    color.b = 255;
-    color.a = 255;
+	
 
 	glm::vec4 rectangle = glm::vec4(640,360,1280,720);
 	if(_hover == 0)
@@ -84,7 +86,6 @@ void MainMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 		spriteBatch.draw(rects[6],0,uv,exit.id,0,hoverColor);
 	else
 		spriteBatch.draw(rects[6],0,uv,exit.id,0,color);
-	_hover = 7;
 }
 
 void MainMenuState::checkCollision(Bengine::InputManager inputManager){
@@ -101,7 +102,7 @@ void MainMenuState::checkCollision(Bengine::InputManager inputManager){
 					return;
 					break;
 				case 1 :
-					this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+					this->gameStateManager->Switch(std::shared_ptr<GameState>(new MultiCharacterSelectState(gameStateManager)));
 					return;
 					break;
 				case 2 :
@@ -130,3 +131,60 @@ void MainMenuState::checkCollision(Bengine::InputManager inputManager){
 		}
 	}
 }
+
+void MainMenuState::processControllerInputs(){
+	if(TheGeneralManager::Instance()->_players[MENUCONTROLLER].isKeyPressed(SDL_CONTROLLER_BUTTON_A))
+	{
+		switch (_hover)
+		{
+		case 0 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+			return;
+			break;
+		case 1 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new MultiCharacterSelectState(gameStateManager)));
+			return;
+			break;
+		case 2 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+			return;
+			break;
+		case 3 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+			return;
+			break;
+		case 4 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+			return;
+			break;
+		case 5 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+			return;
+			break;
+		case 6 :
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+			return;
+			break;
+		}
+	}
+
+	if(TheGeneralManager::Instance()->_players[MENUCONTROLLER].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_DOWN ))
+	{
+		_hover++;
+		if(_hover > 6)
+			_hover = 0;
+	}
+
+	if(TheGeneralManager::Instance()->_players[MENUCONTROLLER].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_UP ))
+	{
+		_hover--;
+		if(_hover < 0)
+			_hover = 6;
+	}
+
+	if(TheGeneralManager::Instance()->_players[MENUCONTROLLER].isKeyPressed(SDL_CONTROLLER_BUTTON_B ))
+	{
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new StartScreenState(gameStateManager)));
+	}
+}
+

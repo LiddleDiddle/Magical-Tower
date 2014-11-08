@@ -43,7 +43,6 @@ private:
 	int* _character;
 	Direction* _direction;
 
-	float _time;
 
 	std::shared_ptr<GameStateManager> gameStateManager;
 
@@ -54,4 +53,6 @@ private:
 
 	
 	bool _mousePressed;
+
+	int _numPlayers;
 };

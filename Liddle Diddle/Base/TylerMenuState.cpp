@@ -61,10 +61,10 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 
 	const float CAMERA_SPEED = 4.0f;
 
-    if (_inputManager.isKeyDown(SDLK_a) || TheGeneralManager::Instance()->_players[0].getLeftStick().x <= -0.1) {
+    if (_inputManager.isKeyDown(SDLK_a)) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
     }
-    if (_inputManager.isKeyDown(SDLK_d) || TheGeneralManager::Instance()->_players[0].getLeftStick().x >= 0.1) {
+    if (_inputManager.isKeyDown(SDLK_d)) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
     }
 

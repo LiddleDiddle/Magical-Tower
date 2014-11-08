@@ -28,7 +28,10 @@ public:
 	float getLeftTrigger() {return _leftTrigger;};
 	glm::vec2 getLeftStick() {return _leftStick;};
 	glm::vec2 getRightStick() {return _rightStick;};
+
+	///did the player joing in the character select screen
 private:
+
 	/// Returns true if the key is held down
     bool wasKeyDown(unsigned int keyID);
 	glm::vec2 _leftStick, _rightStick;

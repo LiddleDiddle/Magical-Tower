@@ -6,7 +6,11 @@
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
 #include "MainMenuState.h"
+#include "GeneralManager.h"
 
+
+#define GENERAL_MANAGER TheGeneralManager::Instance()
+const int MAX_PLAYERS = 4;
 MultiCharacterSelectState::MultiCharacterSelectState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
@@ -31,10 +35,10 @@ void MultiCharacterSelectState::Entered() {
 	_four = glm::vec4(160+320*3,720/2,320,720);
 	_mousePressed = true;
 
-	_joined = new bool[4];
 	_ready = new bool[4];
 	_character = new int[4];
 	_direction = new Direction[4];
+	_joined = new bool[4];
 	for (int i = 0; i < 4; i++)
 	{
 		_ready[i] = false;
@@ -42,7 +46,8 @@ void MultiCharacterSelectState::Entered() {
 		_character[i] = i;
 		_direction[i] = Direction::NEUTRAL;
 	}
-	_time = 0;
+	
+	_numPlayers = TheGeneralManager::Instance()->getNumPlayers();
 }
 
 void MultiCharacterSelectState::Exiting() {
@@ -50,79 +55,8 @@ void MultiCharacterSelectState::Exiting() {
 }
 
 void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
-	_time += elapsedTime;
-
-	for (int i = 0; i < 4; i++)
-	{
-		_direction[i] = Direction::NEUTRAL;
-	}
-
-	if(_inputManager.isKeyDown(SDLK_UP)){
-		for (int i = 0; i < 4; i++)
-		{
-			_direction[i] = Direction::UP;
-		}
-	}
-
-	if(_inputManager.isKeyDown(SDLK_DOWN)){
-		for (int i = 0; i < 4; i++)
-		{
-			_direction[i] = Direction::DOWN;
-		}
-	}
-
-	if(_inputManager.isKeyDown(SDLK_UP) && _time >= 200){
-		for (int i = 0; i < 4; i++)
-		{
-			if(_joined[i])
-			{
-				_character[i] += 1;
-				_time = 0;
-			}
-		}
-	}
-
-	if(_inputManager.isKeyDown(SDLK_DOWN) && _time >= 200){
-		for (int i = 0; i < 4; i++)
-		{
-			_character[i] -= 1;
-			if(_character[i] == -1)
-				_character[i] = 3;
-			_time = 0;
-		}
-	}
-
-	if(_inputManager.isKeyDown(SDLK_RETURN) && _time >= 200){
-		for (int i = 0; i < 4; i++)
-		{
-			if(!_joined[i]){
-				_joined[i] = true;
-				_time = 0;
-			} else if(_joined[i]){
-				_ready[i] = true;
-				_time = 0;
-			}
-		}
-	}
-
-	if(_inputManager.isKeyDown(SDLK_BACKSPACE) && _time >= 200){
-		for (int i = 0; i < 4; i++)
-		{
-			if(!_joined[i])
-			{
-				this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
-				return;
-			}
-			if(_ready[i]){
-				_ready[i] = false;
-				_time = 0;
-			} else if (!_ready[i] && _joined[i]){
-				_joined[i] = false;
-				_time = 0;
-			}
-		}
-	}
- }
+	
+}
 
 void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 {

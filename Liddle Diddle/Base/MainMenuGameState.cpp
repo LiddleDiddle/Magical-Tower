@@ -4,7 +4,8 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
-
+#include "MainGame.h"
+#include "StartScreenState.h"
 
 
 
@@ -20,6 +21,7 @@ void MainMenuGameState::Entered() {
 	_MikeRect = glm::vec4(200,150,200,100);
 	_KingRect = glm::vec4(1280-200,720-200,300,300);
 	_RemedyRect = glm::vec4(1080,150,200,100);
+	_gameRect = glm::vec4(TheMainGame::Instance()->_camera.getScreenDimensions().x/2,TheMainGame::Instance()->_camera.getScreenDimensions().y/2,300,100);
 	rotation = 0;
 }
 
@@ -47,6 +49,12 @@ void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputM
 		{
 			this->gameStateManager->Switch(std::shared_ptr<GameState>(new RemedyMenuState(gameStateManager)));
 		}
+
+		if (mouseCoords.x < _gameRect.x + 100 && mouseCoords.x > _gameRect.x -100 && mouseCoords.y > _gameRect.y - 50 && mouseCoords.y < _gameRect.y +50)
+		{
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new StartScreenState(gameStateManager)));
+		}
+
 		if (glm::length(glm::vec2(mouseCoords.x,mouseCoords.y) - glm::vec2(_KingRect.x,_KingRect.y)) <= 150)
 		{
 			this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
@@ -67,7 +75,7 @@ void MainMenuGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 	static Bengine::GLTexture Mike = Bengine::ResourceManager::getTexture("Textures/Mike.png");
 	static Bengine::GLTexture Wigi = Bengine::ResourceManager::getTexture("Textures/Wigi.png");
 	static Bengine::GLTexture Remedy = Bengine::ResourceManager::getTexture("Textures/Remedy.png");
-
+	static Bengine::GLTexture game = Bengine::ResourceManager::getTexture("Textures/game.png");
 
 	glm::vec4 rectangle = glm::vec4(640,360,1280,720);
 
@@ -75,4 +83,5 @@ void MainMenuGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 	spriteBatch.draw(_MikeRect, 0, uv, Mike.id, 0.0f, color);
 	spriteBatch.draw(_WigiRect, 0, uv, Wigi.id, 0.0f, color);
 	spriteBatch.draw(_RemedyRect, 0, uv, Remedy.id, 0.0f, color);
+	spriteBatch.draw(_gameRect, 0, uv, game.id, 0.0f, color);
 }
