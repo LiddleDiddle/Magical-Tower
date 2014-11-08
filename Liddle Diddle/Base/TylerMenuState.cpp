@@ -7,7 +7,7 @@
 #include "MultiCharacterSelectState.h"
 #include "MainGame.h"
 #include "StageSelectState.h"
-
+#include "GeneralManager.h"
 #define CAMERA TheMainGame::Instance()->_camera
 
 TylerMenuState::TylerMenuState(const std::shared_ptr<GameStateManager> &gameStateManager) :
@@ -61,10 +61,10 @@ void TylerMenuState::ProcessInput(Bengine::InputManager _inputManager){
 
 	const float CAMERA_SPEED = 4.0f;
 
-    if (_inputManager.isKeyDown(SDLK_a) ) {
+    if (_inputManager.isKeyDown(SDLK_a) || TheGeneralManager::Instance()->_players[0].getLeftStick().x <= -0.1) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
     }
-    if (_inputManager.isKeyDown(SDLK_d)) {
+    if (_inputManager.isKeyDown(SDLK_d) || TheGeneralManager::Instance()->_players[0].getLeftStick().x >= 0.1) {
         CAMERA.setPosition(CAMERA.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
     }
 

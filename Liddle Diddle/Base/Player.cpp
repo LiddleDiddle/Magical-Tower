@@ -17,6 +17,10 @@ void Player::update() {
     for (auto& it : _keyMap) {
         _previousKeyMap[it.first] = it.second;
     }
+	_leftStick = glm::vec2(SDL_GameControllerGetAxis(_controller,SDL_CONTROLLER_AXIS_LEFTX) / 32767.0f,SDL_GameControllerGetAxis(_controller,SDL_CONTROLLER_AXIS_LEFTY) / -32767.0f);
+	_rightStick = glm::vec2(SDL_GameControllerGetAxis(_controller,SDL_CONTROLLER_AXIS_RIGHTX) / 32767.0f,SDL_GameControllerGetAxis(_controller,SDL_CONTROLLER_AXIS_RIGHTY) / -32767.0f);
+	_rightTrigger = SDL_GameControllerGetAxis(_controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT) / 32767.0f;
+	_leftTrigger = SDL_GameControllerGetAxis(_controller, SDL_CONTROLLER_AXIS_TRIGGERLEFT) / 32767.0f;
 }
 
 void Player::pressKey(unsigned int keyID) {
