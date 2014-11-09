@@ -3,25 +3,25 @@
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
 
-BasicStage::BasicStage(const std::shared_ptr<GameStateManager> &gameStateManager) :
+BasicState::BasicState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
 	
 }
 
-void BasicStage::Entered() {
+void BasicState::Entered() {
     std::cout << "_____________ has been entered" << std::endl;  //change this
 }
 
-void BasicStage::Exiting() {
+void BasicState::Exiting() {
     std::cout << "_______________ is exiting" << std::endl;  //change this
 }
 
-void BasicStage::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
+void BasicState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
 	ProcessInput(_inputManager);
 }
 
-void BasicStage::Draw(Bengine::SpriteBatch& spriteBatch)
+void BasicState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	Bengine::ColorRGBA8 color;
@@ -33,6 +33,6 @@ void BasicStage::Draw(Bengine::SpriteBatch& spriteBatch)
 
 }
 
-void BasicStage::ProcessInput(Bengine::InputManager _inputManager){
+void BasicState::ProcessInput(Bengine::InputManager _inputManager){
 
 }

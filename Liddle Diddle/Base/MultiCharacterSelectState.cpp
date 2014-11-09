@@ -5,12 +5,12 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
-#include "MainMenuState.h"
+#include "ControllerMenuState.h"
 #include "GeneralManager.h"
-
+#include "MainGame.h"
 
 #define GENERAL_MANAGER TheGeneralManager::Instance()
-const int MAX_PLAYERS = 4;
+
 MultiCharacterSelectState::MultiCharacterSelectState(const std::shared_ptr<GameStateManager> &gameStateManager) :
     gameStateManager(gameStateManager) 
 {
@@ -22,9 +22,6 @@ MultiCharacterSelectState::~MultiCharacterSelectState()
 	delete _character;
 	delete _ready;
 	delete _joined;
-
-
-	
 }
 
 void MultiCharacterSelectState::Entered() {
@@ -47,7 +44,11 @@ void MultiCharacterSelectState::Entered() {
 		_direction[i] = Direction::NEUTRAL;
 	}
 	
-	_numPlayers = TheGeneralManager::Instance()->getNumPlayers();
+	_numPlayers = TheGeneralManager::Instance()->_joinedPlayers.size();
+	for (int i = 0; i < _numPlayers; i++)
+	{
+		_joined[i] = true;
+	}
 }
 
 void MultiCharacterSelectState::Exiting() {
@@ -55,7 +56,61 @@ void MultiCharacterSelectState::Exiting() {
 }
 
 void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
-	
+	for (int i = 0; i < _numPlayers; i++)
+	{
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_UP )){
+			_character[i]++;
+			if(_character[i] > 3)
+				_character[i] = 0;
+		}
+
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_DOWN )){
+			_character[i]--;
+			if(_character[i] < 0)
+				_character[i] = 3;
+		}
+
+		_direction[i] = Direction::NEUTRAL;
+
+
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyDown(SDL_CONTROLLER_BUTTON_DPAD_UP )){
+			_direction[i] = Direction::UP;
+		}
+
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyDown(SDL_CONTROLLER_BUTTON_DPAD_DOWN )){
+			_direction[i] = Direction::DOWN;
+		}
+
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyPressed(SDL_CONTROLLER_BUTTON_A )){
+			_ready[i] = true;
+		}
+
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyPressed(SDL_CONTROLLER_BUTTON_B )){
+			if(!_ready[i])
+			{
+				this->gameStateManager->Switch(std::shared_ptr<GameState>(new ControllerMenuState(gameStateManager)));
+				return;
+			}
+			if(_ready[i])
+				_ready[i] = false;
+		}
+		if(GENERAL_MANAGER->_players[GENERAL_MANAGER->_joinedPlayers[i]].isKeyPressed(SDL_CONTROLLER_BUTTON_START)){
+			bool isEveryoneReady = true;
+			for (int j = 0; j < _numPlayers; j++)
+			{
+				if (!_ready[j])
+				{
+					isEveryoneReady = false;
+				}
+				if (isEveryoneReady)
+				{
+					this->gameStateManager->Switch(std::shared_ptr<GameState>(new StageSelectState(gameStateManager)));
+					return;
+				}
+			}
+		}
+	}
+
 }
 
 void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
@@ -85,7 +140,19 @@ void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 	static Bengine::GLTexture ready = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/ready.png");
 	static Bengine::GLTexture border = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/border.png");
 	static Bengine::GLTexture arrow = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/arrowUp.png");
-
+	static Bengine::GLTexture beginBar = Bengine::ResourceManager::getTexture("Textures/CharacterSelect/beginBar.png");
+	bool isEveryoneReady = true;
+	for (int j = 0; j < _numPlayers; j++)
+	{
+		if (!_ready[j])
+		{
+			isEveryoneReady = false;
+		}
+		if (isEveryoneReady)
+		{
+			spriteBatch.draw(glm::vec4(TheMainGame::Instance()->_camera.getScreenDimensions().x/2, TheMainGame::Instance()->_camera.getScreenDimensions().y/2,TheMainGame::Instance()->_camera.getScreenDimensions().x,TheMainGame::Instance()->_camera.getScreenDimensions().y / 8.64), 0, uv, beginBar.id, 0.0f, color);
+		}
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		spriteBatch.draw(glm::vec4(160 + 320 * i,360,320,720), 0, uv, border.id, 0.0f, color);
@@ -97,7 +164,7 @@ void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 		if(_joined[i])
 		{
 			
-			switch (_character[i] % 4)
+			switch (_character[i])
 			{
 			case 0:
 				spriteBatch.draw(glm::vec4(160 + 320 * i,360,320,720), 0, uv, misaka.id, 0.0f, color);

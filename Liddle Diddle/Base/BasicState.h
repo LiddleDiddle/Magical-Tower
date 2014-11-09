@@ -9,14 +9,14 @@
 
 
 
-class BasicStage : public GameState, public virtual Updateable, public virtual Drawable
+class BasicState : public GameState, public virtual Updateable, public virtual Drawable
 {
 public:
 	/// <summary>Initializes a new intro game state</summary>
 	/// <param name="gameStateManager">
 	///   Game state manager that will be used to switch to various states
 	/// </param>
-	BasicStage(const std::shared_ptr<GameStateManager> &gameStateManager);
+	BasicState(const std::shared_ptr<GameStateManager> &gameStateManager);
 
 	/// <summary>Called when the game state is entered</summary>
 	void Entered();
