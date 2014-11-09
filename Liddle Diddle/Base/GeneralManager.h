@@ -23,8 +23,10 @@ public:
 	~GeneralManager(void);
 
 	std::vector<Player> _players;
+	std::vector<int> _joinedPlayers;
 	/// who is in control of the menu 
 	int MenuController;
+
 private:
 	static GeneralManager* s_pInstance;
 	int _numPlayers;

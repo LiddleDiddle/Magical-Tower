@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
 #include "MainGame.h"
+#include "GeneralManager.h"
 
 const int STAGE_COUNT = 5;
 
@@ -57,15 +58,13 @@ void StageSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 }
 
 void StageSelectState::ProcessInput(Bengine::InputManager inputManager){
-	if(inputManager.isKeyPressed(SDLK_RIGHT))
-	{
+	if(TheGeneralManager::Instance()->_players[TheGeneralManager::Instance()->_joinedPlayers[0]].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_RIGHT)){
 		for (int i = 0; i < STAGE_COUNT; i++)
 		{
 			std::swap(_Textures[i],_Textures[(i+1) % STAGE_COUNT]);
 		}
 	}
-	if(inputManager.isKeyPressed(SDLK_LEFT))
-	{
+	if(TheGeneralManager::Instance()->_players[TheGeneralManager::Instance()->_joinedPlayers[0]].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_LEFT)){
 		for (int i = 0; i < STAGE_COUNT; i++)
 		{
 			if (i == 0)

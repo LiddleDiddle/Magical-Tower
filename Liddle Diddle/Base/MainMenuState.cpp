@@ -5,7 +5,7 @@
 #include "MainMenuGameState.h"
 #include "TylerMenuState.h"
 #include "GeneralManager.h"
-#include "MultiCharacterSelectState.h"
+#include "ControllerMenuState.h"
 #include "StartScreenState.h"
 
 #define MENUCONTROLLER TheGeneralManager::Instance()->MenuController
@@ -102,7 +102,7 @@ void MainMenuState::checkCollision(Bengine::InputManager inputManager){
 					return;
 					break;
 				case 1 :
-					this->gameStateManager->Switch(std::shared_ptr<GameState>(new MultiCharacterSelectState(gameStateManager)));
+					this->gameStateManager->Switch(std::shared_ptr<GameState>(new ControllerMenuState(gameStateManager)));
 					return;
 					break;
 				case 2 :
@@ -142,7 +142,7 @@ void MainMenuState::processControllerInputs(){
 			return;
 			break;
 		case 1 :
-			this->gameStateManager->Switch(std::shared_ptr<GameState>(new MultiCharacterSelectState(gameStateManager)));
+			this->gameStateManager->Switch(std::shared_ptr<GameState>(new ControllerMenuState(gameStateManager)));
 			return;
 			break;
 		case 2 :

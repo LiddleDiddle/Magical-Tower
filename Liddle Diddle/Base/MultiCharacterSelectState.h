@@ -41,6 +41,7 @@ private:
 	bool* _joined;
 	bool* _ready;
 	int* _character;
+	int _numPlayers;
 	Direction* _direction;
 
 
@@ -53,6 +54,4 @@ private:
 
 	
 	bool _mousePressed;
-
-	int _numPlayers;
 };
