@@ -1,4 +1,5 @@
 #include "MainMenuState.h"
+#include "TilemapEditorState.h"
 #include <iostream>
 #include <Bengine/ResourceManager.h>
 #include <SDL2\SDL.h>
@@ -106,7 +107,7 @@ void MainMenuState::checkCollision(Bengine::InputManager inputManager){
 					return;
 					break;
 				case 2 :
-					this->gameStateManager->Switch(std::shared_ptr<GameState>(new TylerMenuState(gameStateManager)));
+					this->gameStateManager->Switch(std::shared_ptr<GameState>(new TilemapEditorState(gameStateManager)));
 					return;
 					break;
 				case 3 :
