@@ -5,6 +5,7 @@
 #include <string>
 #include "IntroGameState.h"
 #include "GeneralManager.h"
+#include "MainMenuGameState.h"
 
 MainGame* MainGame::s_pInstance = 0;
 
@@ -146,6 +147,11 @@ void MainGame::processInput() {
         }
     }
 
+	if (_inputManager.isKeyPressed(SDLK_ESCAPE))
+	{
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
+		return;
+	}
 	
 
 /*

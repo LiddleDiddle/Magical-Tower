@@ -1,5 +1,5 @@
 #include "TilemapEditorState.h"
-#include "MainMenuGameState.h"
+#include "MainMenuState.h"
 #include "MainGame.h"
 #include "LevelLoader.h"
 #include "Drawable.h"
@@ -48,7 +48,7 @@ void TilemapEditorState::Update(float elapsedTime, Bengine::InputManager& inputM
 void TilemapEditorState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 
-	static Bengine::GLTexture tile1 = Bengine::ResourceManager::getTexture("Textures/TestTile.png");
+	static Bengine::GLTexture tile1 = Bengine::ResourceManager::getTexture("Textures/Assignment 4/Box.png");
 	static Bengine::GLTexture tile2 = Bengine::ResourceManager::getTexture("Textures/Tile2.png");
 	static Bengine::GLTexture tile3 = Bengine::ResourceManager::getTexture("Textures/Tile3.png");
 
@@ -83,7 +83,7 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 {
 	if (_inputManager.isKeyDown(SDLK_BACKSPACE))
 	{
-		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuGameState(gameStateManager)));
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuState(gameStateManager)));
 		return;
 	}
 	if (_inputManager.isKeyDown(SDLK_s))
@@ -126,6 +126,11 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 
 		tileCoords.x = floor((mouseCoords.x / 40));
 		tileCoords.y = floor((mouseCoords.y / 40));
+
+		if (tileCoords.x < 0 || tileCoords.x >= WIDTH || tileCoords.y < 0 || tileCoords.y >= HEIGHT)
+		{
+			return;
+		}
 
 		if (!changed)
 		{
