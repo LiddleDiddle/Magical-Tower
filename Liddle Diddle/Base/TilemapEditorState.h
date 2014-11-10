@@ -44,6 +44,7 @@ private:
 	bool changed;
 	bool tempInitialized;
 	bool multipleTilesChanged;
+	bool firstRun;
 	glm::vec2 tileCoords;
 	float tempX, tempY;
 };

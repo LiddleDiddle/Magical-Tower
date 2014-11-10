@@ -30,9 +30,8 @@ void TilemapEditorState::Entered()
 	changed = false;
 	numTiles = 3;
 	sameTile = 0;
-	multipleTilesChanged = false;
-
-	
+	multipleTilesChanged = false;	
+	firstRun = true;
 }
 
 void TilemapEditorState::Exiting()
@@ -81,16 +80,16 @@ void TilemapEditorState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 {
-	if (_inputManager.isKeyDown(SDLK_BACKSPACE))
+	if (_inputManager.isKeyPressed(SDLK_BACKSPACE))
 	{
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new MainMenuState(gameStateManager)));
 		return;
 	}
-	if (_inputManager.isKeyDown(SDLK_s))
+	if (_inputManager.isKeyPressed(SDLK_s))
 	{
 		SaveXML(level);
 	}
-	if (_inputManager.isKeyDown(SDLK_SPACE))
+	if (_inputManager.isKeyPressed(SDLK_SPACE))
 	{
 		for(int i = 0; i < HEIGHT; ++i)
 		{
@@ -101,8 +100,21 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 		}
 	}
 
+	if (firstRun)
+	{
+		if(_inputManager.isKeyDown(SDL_BUTTON_LEFT))
+		{
+			return;
+		}
+		firstRun = false;
+	}
+
 	if (_inputManager.isKeyDown(SDL_BUTTON_LEFT) || _inputManager.isKeyDown(SDL_BUTTON_RIGHT))
 	{
+		if (firstRun)
+		{
+			return;
+		}
 		if (!mousePressed)
 		{
 			int** tempArray = new int*[HEIGHT];
@@ -120,6 +132,8 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 			mousePressed = true;
 			tileChangedArray = tempArray;
 		}
+		
+		
 
 		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
 		mouseCoords = CAMERA.convertScreenToWorld(mouseCoords);
@@ -136,6 +150,7 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 		{
 			tempX = tileCoords.x;
 			tempY = tileCoords.y;
+
 			if (tileChangedArray[(int)tileCoords.y][(int)tileCoords.x] == 0)
 			{
 				if (_inputManager.isKeyDown(SDL_BUTTON_LEFT))
@@ -160,7 +175,7 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 						level[(int)tileCoords.y][(int)tileCoords.x] = sameTile;
 					}
 				}
-				level[(int)tileCoords.y][(int)tileCoords.x] %= (numTiles + 1); //modulus number of tiles
+				level[(int)tileCoords.y][(int)tileCoords.x] %= (numTiles + 1);
 				changed = true;
 				sameTile = level[(int)tileCoords.y][(int)tileCoords.x];
 				tileChangedArray[(int)tileCoords.y][(int)tileCoords.x] = 1;
