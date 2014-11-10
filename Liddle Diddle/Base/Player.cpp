@@ -13,6 +13,8 @@ Player::~Player(void)
 }
 
 void Player::update() {
+
+	//std::cout << yolo++ << std::endl;
     // Loop through _keyMap using a for each loop, and copy it over to _previousKeyMap
     for (auto& it : _keyMap) {
         _previousKeyMap[it.first] = it.second;

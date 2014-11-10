@@ -22,14 +22,14 @@ public:
 	void Entered();
 
 	/// <summary>Called when the game state is about to be exited</summary>
-	public: void Exiting();
+public: void Exiting();
 
-	/// <summary>Updates the time in the game state's simulation</summary>
-	/// <param name="elapsedTime">Time by which to advance the simulation</param>
-	void Update(float elapsedTime, Bengine::InputManager& inputManager);
+		/// <summary>Updates the time in the game state's simulation</summary>
+		/// <param name="elapsedTime">Time by which to advance the simulation</param>
+		void Update(float elapsedTime, Bengine::InputManager& inputManager);
 
-	void Draw(Bengine::SpriteBatch& spriteBatch);
-	void ProcessInput();
+		void Draw(Bengine::SpriteBatch& spriteBatch);
+		void ProcessInput();
 
 
 private: 

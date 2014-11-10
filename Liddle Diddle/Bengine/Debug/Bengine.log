@@ -1,9 +1,29 @@
-﻿Build started 11/9/2014 9:59:15 PM.
-     1>Project "C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
-         Bengine.vcxproj -> C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Debug\Bengine.lib
-     1>Done Building Project "C:\Users\TheColonel\Documents\GitHub\Magical-Tower\Liddle Diddle\Bengine\Bengine.vcxproj" (Build target(s)).
+﻿Build started 11/10/2014 9:22:17 AM.
+     1>Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Bengine\Bengine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Timing.cpp
+         Timing.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\timing.cpp(24): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\timing.cpp(41): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\bengine\timing.cpp(44): warning C4244: 'initializing' : conversion from 'Uint32' to 'float', possible loss of data
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Bengine.lib" /NOLOGO Debug\Bengine.obj
+         Debug\Camera2D.obj
+         Debug\Errors.obj
+         Debug\GLSLProgram.obj
+         Debug\ImageLoader.obj
+         Debug\InputManager.obj
+         Debug\IOManager.obj
+         Debug\picoPNG.obj
+         Debug\ResourceManager.obj
+         Debug\Timing.obj
+         Debug\Sprite.obj
+         Debug\SpriteBatch.obj
+         Debug\TextureCache.obj
+         Debug\Window.obj
+         Bengine.vcxproj -> C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Bengine.lib
+     1>Done Building Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Bengine\Bengine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.34

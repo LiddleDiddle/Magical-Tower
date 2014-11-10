@@ -77,7 +77,7 @@ void MainGame::gameLoop() {
         _fpsLimiter.begin();
 		processInput();
 		
-		TheGeneralManager::Instance()->updatePlayers();
+		
 		TheGeneralManager::Instance()->processPlayerInputs();
         _camera.update();
 		
@@ -93,6 +93,7 @@ void MainGame::gameLoop() {
 	   while (accumulator >= DELTA_TIME)
 	   {
 		   gameStateManager->Update(DELTA_TIME, _inputManager);
+		   TheGeneralManager::Instance()->updatePlayers();
 		   accumulator -= DELTA_TIME;
 	   }
 
