@@ -7,6 +7,10 @@
 #include <Bengine/InputManager.h>
 #include <Bengine/Camera2D.h>
 #include <Bengine/ResourceManager.h>
+#include <Box2D/Box2D.h>
+#include "Ball.h"
+#include "PhysicsTile.h"
+#include <vector>
 
 
 
@@ -30,20 +34,15 @@ public:
 	void Update(float elapsedTime, Bengine::InputManager& inputManager);
 
 	void Draw(Bengine::SpriteBatch& spriteBatch);
-	void ProcessInput(Bengine::InputManager _inputManager);
-	void SaveXML(int** level);
+	void BuildLevel(int** level);
 	
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
 	int** level;
-	int** tileChangedArray;
-	int numTiles;
-	int sameTile;
-	bool mousePressed;
-	bool changed;
-	bool tempInitialized;
-	bool multipleTilesChanged;
-	glm::vec2 tileCoords;
-	float tempX, tempY;
+
+	b2World* world;
+	Ball* ball;
+	std::vector<PhysicsTile*> tiles;
+
 };

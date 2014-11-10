@@ -110,8 +110,10 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Modality.cpp" />
     <ClCompile Include="MultiCharacterSelectState.cpp" />
+    <ClCompile Include="PhysicsTile.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RemedyMenuState.cpp" />
+    <ClCompile Include="TilemapEditorState.cpp" />
     <ClCompile Include="StageSelectState.cpp" />
     <ClCompile Include="StartScreenState.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
@@ -141,8 +143,10 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Modality.h" />
     <ClInclude Include="MultiCharacterSelectState.h" />
+    <ClInclude Include="PhysicsTile.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RemedyMenuState.h" />
+    <ClInclude Include="TilemapEditorState.h" />
     <ClInclude Include="StageSelectState.h" />
     <ClInclude Include="StartScreenState.h" />
     <ClInclude Include="tinyxml2.h" />

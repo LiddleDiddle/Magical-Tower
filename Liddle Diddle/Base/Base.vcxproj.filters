@@ -105,9 +105,6 @@
     <ClCompile Include="tinyxml2.cpp">
       <Filter>XMLStuff</Filter>
     </ClCompile>
-    <ClCompile Include="RemedyMenuState.cpp">
-      <Filter>States</Filter>
-    </ClCompile>
     <ClCompile Include="GeneralManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -116,6 +113,15 @@
     </ClCompile>
     <ClCompile Include="ControllerMenuState.cpp">
       <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="TilemapEditorState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="RemedyMenuState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsTile.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,9 +200,6 @@
     <ClInclude Include="tinyxml2.h">
       <Filter>XMLStuff</Filter>
     </ClInclude>
-    <ClInclude Include="RemedyMenuState.h">
-      <Filter>States</Filter>
-    </ClInclude>
     <ClInclude Include="GeneralManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -205,6 +208,15 @@
     </ClInclude>
     <ClInclude Include="ControllerMenuState.h">
       <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapEditorState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="RemedyMenuState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsTile.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

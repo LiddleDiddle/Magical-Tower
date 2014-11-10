@@ -43,7 +43,7 @@ void Ball::Draw(Bengine::SpriteBatch& spriteBatch)
     color.b = 255;
     color.a = 255;
 
-	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
+	glm::vec4 rectangle = glm::vec4(position.x,position.y,40,40);
 	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 }
 
