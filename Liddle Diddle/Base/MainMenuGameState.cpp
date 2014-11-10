@@ -31,7 +31,7 @@ void MainMenuGameState::Exiting() {
 }
 
 void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputManager) {
-
+	rotation -= elapsedTime;
 	if (_inputManager.isKeyDown(SDL_BUTTON_LEFT)){
 		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
 		mouseCoords.y = 720 - mouseCoords.y;
@@ -66,11 +66,7 @@ void MainMenuGameState::Update(float elapsedTime, Bengine::InputManager& _inputM
 void MainMenuGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
-	Bengine::ColorRGBA8 color;
-	color.r = 255;
-    color.g = 255;
-    color.b = 255;
-    color.a = 255;
+	Bengine::ColorRGBA8 color(255,255,255,255);
 
 	static Bengine::GLTexture King = Bengine::ResourceManager::getTexture("Textures/King.png");
 	static Bengine::GLTexture Mike = Bengine::ResourceManager::getTexture("Textures/Mike.png");
@@ -80,7 +76,7 @@ void MainMenuGameState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 	glm::vec4 rectangle = glm::vec4(640,360,1280,720);
 
-	spriteBatch.draw(_KingRect, rotation += 0.01, uv, King.id, 0.0f, color);
+	spriteBatch.draw(_KingRect, rotation, uv, King.id, 0.0f, color);
 	spriteBatch.draw(_MikeRect, 0, uv, Mike.id, 0.0f, color);
 	spriteBatch.draw(_WigiRect, 0, uv, Wigi.id, 0.0f, color);
 	spriteBatch.draw(_RemedyRect, 0, uv, Remedy.id, 0.0f, color);

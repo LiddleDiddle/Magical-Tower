@@ -102,11 +102,11 @@ void MultiCharacterSelectState::Update(float elapsedTime, Bengine::InputManager&
 				{
 					isEveryoneReady = false;
 				}
-				if (isEveryoneReady)
-				{
-					this->gameStateManager->Switch(std::shared_ptr<GameState>(new StageSelectState(gameStateManager)));
-					return;
-				}
+			}
+			if (isEveryoneReady)
+			{
+				this->gameStateManager->Switch(std::shared_ptr<GameState>(new StageSelectState(gameStateManager)));
+				return;
 			}
 		}
 	}
@@ -148,10 +148,10 @@ void MultiCharacterSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 		{
 			isEveryoneReady = false;
 		}
-		if (isEveryoneReady)
-		{
-			spriteBatch.draw(glm::vec4(TheMainGame::Instance()->_camera.getScreenDimensions().x/2, TheMainGame::Instance()->_camera.getScreenDimensions().y/2,TheMainGame::Instance()->_camera.getScreenDimensions().x,TheMainGame::Instance()->_camera.getScreenDimensions().y / 8.64), 0, uv, beginBar.id, 0.0f, color);
-		}
+	}
+	if (isEveryoneReady)
+	{
+		spriteBatch.draw(glm::vec4(TheMainGame::Instance()->_camera.getScreenDimensions().x/2, TheMainGame::Instance()->_camera.getScreenDimensions().y/2,TheMainGame::Instance()->_camera.getScreenDimensions().x,TheMainGame::Instance()->_camera.getScreenDimensions().y / 8.64), 0, uv, beginBar.id, 0.0f, color);
 	}
 	for (int i = 0; i < 4; i++)
 	{

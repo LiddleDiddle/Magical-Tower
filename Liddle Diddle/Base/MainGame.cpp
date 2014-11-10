@@ -40,7 +40,7 @@ void MainGame::initSystems() {
 
     Bengine::init();
 
-    _window.create("Game Engine", _screenWidth, _screenHeight, SDL_WINDOW_RESIZABLE);
+    _window.create("Game Engine", _screenWidth, _screenHeight, 0);
 	TheGeneralManager::Instance()->init();
     initShaders();
 
@@ -94,12 +94,13 @@ void MainGame::gameLoop() {
 	   {
 		   gameStateManager->Update(DELTA_TIME, _inputManager);
 		   TheGeneralManager::Instance()->updatePlayers();
+		   _inputManager.update();
 		   accumulator -= DELTA_TIME;
 	   }
 
 		
 		
-		_inputManager.update();
+		
 		drawGame();
 
         _fps = _fpsLimiter.end();

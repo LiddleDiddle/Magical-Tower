@@ -1,5 +1,7 @@
 #include "Ball.h"
 #include <Bengine\ResourceManager.h>
+#include "MainGame.h"
+#include <iostream>
 
 Ball::Ball(b2World* world, float x, float y)
 	: GameObject(world)
@@ -15,12 +17,12 @@ void Ball::CreateBox2dObject(float x, float y)
 {
 	// Circle
 	b2CircleShape shape;
-	shape.m_radius = 0.5f;
+	shape.m_radius = 1.0f;
 
 	b2FixtureDef fd;
 	fd.shape = &shape;
 	fd.density = 1.0f;
-	fd.restitution = 0.5f;
+	fd.restitution = 0.7f;
 	fd.friction = 0.3f;
 	b2BodyDef bd;
 	bd.type = b2_dynamicBody;
@@ -43,7 +45,7 @@ void Ball::Draw(Bengine::SpriteBatch& spriteBatch)
     color.b = 255;
     color.a = 255;
 
-	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
+	glm::vec4 rectangle = glm::vec4(position.x * TheMainGame::Instance()->_camera.getScreenDimensions().x / 32,position.y * TheMainGame::Instance()->_camera.getScreenDimensions().x / 32,TheMainGame::Instance()->_camera.getScreenDimensions().x / 32 * 2, TheMainGame::Instance()->_camera.getScreenDimensions().x / 32 * 2);
 	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 }
 
