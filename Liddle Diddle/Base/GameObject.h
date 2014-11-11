@@ -13,6 +13,7 @@ public:
 	virtual void addForceCenter(float x, float y) = 0;
 protected:
 	b2Body* body;
+	b2Body* body2;
 	b2World* world;
 };
 

@@ -1,6 +1,8 @@
 #include "Box.h"
 #include <Bengine\ResourceManager.h>
+#include "MainGame.h"
 
+#define CAMERA TheMainGame::Instance()->_camera.getScreenDimensions()
 Box::Box(b2World* world, float x, float y)
 	:GameObject(world)
 {
@@ -49,7 +51,7 @@ void Box::Draw(Bengine::SpriteBatch& spriteBatch)
     color.b = 255;
     color.a = 255;
 
-	glm::vec4 rectangle = glm::vec4(position.x * 60,position.y * 60,60,60);
+	glm::vec4 rectangle = glm::vec4(position.x * CAMERA.x / 32,position.y * CAMERA.y/18,1 * CAMERA.x / 32,1 * CAMERA.y / 18);
 
 	spriteBatch.draw(rectangle, angle, uv, spook.id, 0.0f, color);
 

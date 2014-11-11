@@ -110,15 +110,18 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Modality.cpp" />
     <ClCompile Include="MultiCharacterSelectState.cpp" />
+    <ClCompile Include="Pendulum.cpp" />
     <ClCompile Include="PhysicsTile.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RemedyMenuState.cpp" />
+    <ClCompile Include="Seesaw.cpp" />
     <ClCompile Include="TilemapEditorState.cpp" />
     <ClCompile Include="StageSelectState.cpp" />
     <ClCompile Include="StartScreenState.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="TylerMenuState.cpp" />
     <ClCompile Include="Updateable.cpp" />
+    <ClCompile Include="wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assignment4GameState.h" />
@@ -143,15 +146,18 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Modality.h" />
     <ClInclude Include="MultiCharacterSelectState.h" />
+    <ClInclude Include="Pendulum.h" />
     <ClInclude Include="PhysicsTile.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RemedyMenuState.h" />
+    <ClInclude Include="Seesaw.h" />
     <ClInclude Include="TilemapEditorState.h" />
     <ClInclude Include="StageSelectState.h" />
     <ClInclude Include="StartScreenState.h" />
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="TylerMenuState.h" />
     <ClInclude Include="Updateable.h" />
+    <ClInclude Include="wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,7 +22,7 @@ void Assignment4GameState::Exiting() {
 
 void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inputManager) 
 {
-	gameWorld.Update(elapsedTime);   //fix this
+	gameWorld.Update(elapsedTime, inputManager);   //fix this
 	
 	if (inputManager.isKeyPressed(SDLK_SPACE)) {
 		gameWorld.OnKeyEvent();
@@ -30,6 +30,11 @@ void Assignment4GameState::Update(float elapsedTime, Bengine::InputManager& inpu
 	if (inputManager.isKeyPressed(SDLK_r)) {
 		gameWorld.endIt();
 		this->gameStateManager->Switch(std::shared_ptr<GameState>(new Assignment4GameState(gameStateManager)));
+	}
+
+	if(inputManager.isKeyPressed(SDL_BUTTON_LEFT))
+	{
+		gameWorld.mouseDown(b2Vec2(inputManager.getMouseCoords().x / 40.0f,18 -(inputManager.getMouseCoords().y / 40.0f)));
 	}
 }
 

@@ -123,6 +123,15 @@
     <ClCompile Include="PhysicsTile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="wall.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Seesaw.cpp">
+      <Filter>Assignment 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Pendulum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -216,6 +225,15 @@
       <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wall.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Seesaw.h">
+      <Filter>Assignment 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Pendulum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

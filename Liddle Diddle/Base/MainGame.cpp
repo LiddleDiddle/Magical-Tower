@@ -109,8 +109,8 @@ void MainGame::gameLoop() {
         //print only once every 10 frames
         static int frameCounter = 0;
         frameCounter++;
-        if (frameCounter == 60) {
-            std::cout << _fps << std::endl;
+        if (frameCounter == 1000) {
+            //std::cout << _fps << std::endl;
             frameCounter = 0;
         }
     }
