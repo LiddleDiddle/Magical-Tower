@@ -38,6 +38,9 @@ private:
 	std::shared_ptr<GameStateManager> gameStateManager;
 	int** level;
 	int** tileChangedArray;
+	int bgColor;
+	Bengine::GLTexture grids[3];
+	int gridNumber;
 	int numTiles;
 	int sameTile;
 	bool mousePressed;

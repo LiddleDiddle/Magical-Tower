@@ -32,6 +32,8 @@ void TilemapEditorState::Entered()
 	sameTile = 0;
 	multipleTilesChanged = false;	
 	firstRun = true;
+	gridNumber = 0;
+	bgColor = 0;
 }
 
 void TilemapEditorState::Exiting()
@@ -46,10 +48,27 @@ void TilemapEditorState::Update(float elapsedTime, Bengine::InputManager& inputM
 
 void TilemapEditorState::Draw(Bengine::SpriteBatch& spriteBatch)
 {
+	
+	switch (bgColor % 3)
+	{
+	case 0 :
+		glClearColor(1,1,1,1);
+		break;
+	case 1:
+		glClearColor(0.5,0.5,0.5,1);
+		break;
+	case 2 :
+		glClearColor(0,0,0,1);
+		break;
+	}
 
 	static Bengine::GLTexture tile1 = Bengine::ResourceManager::getTexture("Textures/Assignment 4/Box.png");
 	static Bengine::GLTexture tile2 = Bengine::ResourceManager::getTexture("Textures/Tile2.png");
 	static Bengine::GLTexture tile3 = Bengine::ResourceManager::getTexture("Textures/Tile3.png");
+
+	grids[0] = Bengine::ResourceManager::getTexture("Textures/grid1.png");
+	grids[1] = Bengine::ResourceManager::getTexture("Textures/grid2.png");
+	grids[2] = Bengine::ResourceManager::getTexture("Textures/grid3.png");
 
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	Bengine::ColorRGBA8 color;
@@ -57,6 +76,21 @@ void TilemapEditorState::Draw(Bengine::SpriteBatch& spriteBatch)
 	color.g = 255;
 	color.b = 255;
 	color.a = 255;
+
+	switch (gridNumber % 4)
+	{
+	case 0 :
+		spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/2,CAMERA.getScreenDimensions().y/2,CAMERA.getScreenDimensions().x, CAMERA.getScreenDimensions().y), 0.0f, uv, grids[0].id, 0.0f, color);
+		break;
+	case 1: 
+		spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/2,CAMERA.getScreenDimensions().y/2,CAMERA.getScreenDimensions().x, CAMERA.getScreenDimensions().y), 0.0f, uv, grids[1].id, 0.0f, color);
+		break;
+	case 2: 
+		spriteBatch.draw(glm::vec4(CAMERA.getScreenDimensions().x/2,CAMERA.getScreenDimensions().y/2,CAMERA.getScreenDimensions().x, CAMERA.getScreenDimensions().y), 0.0f, uv, grids[2].id, 0.0f, color);
+		break;
+	default:
+		break;
+	}
 
 	for (int i = 0; i < HEIGHT; ++i)
 	{
@@ -99,7 +133,10 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 			}
 		}
 	}
-
+	if (_inputManager.isKeyPressed(SDLK_g))
+		gridNumber++;
+	if (_inputManager.isKeyPressed(SDLK_b))
+		bgColor++;
 	if (firstRun)
 	{
 		if(_inputManager.isKeyDown(SDL_BUTTON_LEFT))
