@@ -37,5 +37,6 @@ private:
 
 	std::vector<glm::vec4> _menuPositions;
 	std::vector<Bengine::GLTexture> _Textures;
-
+	
+	int currentLevel;
 };

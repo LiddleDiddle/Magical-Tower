@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+#include "Level.h"
 #include <vector>
 #include <SDL2\SDL.h>
 class GeneralManager
@@ -23,10 +24,11 @@ public:
 	~GeneralManager(void);
 
 	std::vector<Player> _players;
+	std::vector<Level> _levels;
 	std::vector<int> _joinedPlayers;
 	/// who is in control of the menu 
 	int MenuController;
-
+	int currentLevel;
 private:
 	static GeneralManager* s_pInstance;
 	int _numPlayers;

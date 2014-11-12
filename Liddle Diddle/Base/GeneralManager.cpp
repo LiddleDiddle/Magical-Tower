@@ -21,6 +21,12 @@ void GeneralManager::init()
 
 	MenuController = -1;
 
+	_levels.emplace_back("Level 1", "Textures/Levels/Level001.png", "Level001.xml");
+	_levels.emplace_back("Level 2", "Textures/Levels/Level002.png", "Level002.xml");
+	_levels.emplace_back("Level 3", "Textures/Levels/Level003.png", "Level003.xml");
+	_levels.emplace_back("Level 4", "Textures/Levels/Level004.png", "Level004.xml");
+	_levels.emplace_back("Level 5", "Textures/Levels/Level005.png", "Level005.xml");
+	currentLevel = 0;
 }
 
 GeneralManager::~GeneralManager(void)

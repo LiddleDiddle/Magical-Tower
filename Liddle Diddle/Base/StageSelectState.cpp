@@ -6,8 +6,6 @@
 #include "MainGame.h"
 #include "GeneralManager.h"
 
-const int STAGE_COUNT = 5;
-
 #define CAMERA TheMainGame::Instance()->_camera
 
 StageSelectState::StageSelectState(const std::shared_ptr<GameStateManager> &gameStateManager) :
@@ -18,22 +16,19 @@ StageSelectState::StageSelectState(const std::shared_ptr<GameStateManager> &game
 
 void StageSelectState::Entered() {
     std::cout << "StageSelectState has been entered" << std::endl;
+	for (int i = 0; i < TheGeneralManager::Instance()->_levels.size(); i++)
+	{
+			_Textures.push_back(Bengine::ResourceManager::getTexture(TheGeneralManager::Instance()->_levels[i].GetImage()));
+	}
 
-	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/StageSelect/one.png"));
-	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/StageSelect/two.png"));
-	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/StageSelect/three.png"));
-	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/StageSelect/four.png"));
-	_Textures.push_back(Bengine::ResourceManager::getTexture("Textures/StageSelect/five.png"));
-
-	for (int i = 0; i < STAGE_COUNT; i++)
+	for (int i = 0; i < TheGeneralManager::Instance()->_levels.size(); i++)
 	{
 		_menuPositions.emplace_back(CAMERA.getScreenDimensions().x / 2 - CAMERA.getScreenDimensions().x + (CAMERA.getScreenDimensions().x / 2 * i),
 			CAMERA.getScreenDimensions().y / 2,
 			CAMERA.getScreenDimensions().x / 2,
 			CAMERA.getScreenDimensions().y / 2);
 	}
-
-	Level level;
+	currentLevel = 2;
 }
 
 void StageSelectState::Exiting() {
@@ -62,18 +57,30 @@ void StageSelectState::Draw(Bengine::SpriteBatch& spriteBatch)
 
 void StageSelectState::ProcessInput(Bengine::InputManager inputManager){
 	if(TheGeneralManager::Instance()->_players[TheGeneralManager::Instance()->_joinedPlayers[0]].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_RIGHT)){
-		for (int i = 0; i < STAGE_COUNT; i++)
+		for (int i = 0; i < TheGeneralManager::Instance()->_levels.size()-1; i++)
 		{
-			std::swap(_Textures[i],_Textures[(i+1) % STAGE_COUNT]);
+			std::swap(_Textures[i],_Textures[i+1]);
+
 		}
+			currentLevel++;
+			if(currentLevel > TheGeneralManager::Instance()->_levels.size() - 1)
+				currentLevel = 0;
 	}
 	if(TheGeneralManager::Instance()->_players[TheGeneralManager::Instance()->_joinedPlayers[0]].isKeyPressed(SDL_CONTROLLER_BUTTON_DPAD_LEFT)){
-		for (int i = 0; i < STAGE_COUNT; i++)
+		for (int i = TheGeneralManager::Instance()->_levels.size() - 1; i > 0 ; i--)
 		{
-			if (i == 0)
-				std::swap(_Textures[i],_Textures[(STAGE_COUNT - 1) % STAGE_COUNT]);
-			else
 				std::swap(_Textures[i],_Textures[(i-1)]);
 		}
+		currentLevel--;
+		if(currentLevel < 0)
+			currentLevel = TheGeneralManager::Instance()->_levels.size() - 1;
+		std::cout <<currentLevel << std::endl;
 	}
+
+	if(TheGeneralManager::Instance()->_players[TheGeneralManager::Instance()->_joinedPlayers[0]].isKeyPressed(SDL_CONTROLLER_BUTTON_A)){
+		TheGeneralManager::Instance()->currentLevel = currentLevel;
+		std::cout << currentLevel << std::endl;
+	}
+
+	
 }
