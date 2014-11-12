@@ -6,7 +6,7 @@ class LevelLoader
 {
 public:
 	LevelLoader();
-	int** LoadLevel();
+	int** LoadLevel(const char* filename);
 	void CreateLevel();
 	void CreateXMLDoc();
 	void DrawLevel(int** level);

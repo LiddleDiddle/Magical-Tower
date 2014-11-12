@@ -36,6 +36,7 @@ public:
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
+	char* file;
 	int** level;
 	int** tileChangedArray;
 	int bgColor;

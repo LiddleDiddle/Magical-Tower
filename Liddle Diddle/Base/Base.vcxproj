@@ -103,6 +103,7 @@
     <ClCompile Include="GeneralManager.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="IntroGameState.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="GeneralManager.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="IntroGameState.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MainMenuGameState.h" />

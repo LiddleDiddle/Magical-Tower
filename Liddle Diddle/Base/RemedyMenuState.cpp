@@ -1,7 +1,7 @@
 #include "RemedyMenuState.h"
 #include "MainMenuGameState.h"
 #include "MainGame.h"
-#include "LevelLoader.h"
+#include "Level.h"
 #include "Drawable.h"
 #include <SDL2/SDL.h>
 #include <iostream>
@@ -23,11 +23,9 @@ RemedyMenuState::RemedyMenuState(const std::shared_ptr<GameStateManager> &gameSt
 
 void RemedyMenuState::Entered()
 {
-	LevelLoader loader;
-	level = loader.LoadLevel();
-	BuildLevel(level);
-	ball = new Ball(world, 16, 9);
-	
+	Level* level = new Level("Level 1", "Level001.png", "Level001.xml");
+	BuildLevel(level->LoadLevel(level->GetFile()));
+	delete level;
 }
 
 void RemedyMenuState::Exiting()
@@ -65,7 +63,7 @@ void RemedyMenuState::Draw(Bengine::SpriteBatch& spriteBatch)
 	{
 		tiles[i]->Draw(spriteBatch);
 	}
-	ball->Draw(spriteBatch);
+	//ball->Draw(spriteBatch);
 }
 
 void RemedyMenuState::BuildLevel(int** level)

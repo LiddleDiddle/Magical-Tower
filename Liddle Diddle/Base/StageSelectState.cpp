@@ -1,4 +1,5 @@
 #include "StageSelectState.h"
+#include "Level.h"
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Bengine/ResourceManager.h>
@@ -31,6 +32,8 @@ void StageSelectState::Entered() {
 			CAMERA.getScreenDimensions().x / 2,
 			CAMERA.getScreenDimensions().y / 2);
 	}
+
+	Level level;
 }
 
 void StageSelectState::Exiting() {

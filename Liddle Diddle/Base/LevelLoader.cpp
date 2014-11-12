@@ -15,7 +15,7 @@ void LevelLoader::CreateLevel()
 	
 }
 
-int** LevelLoader::LoadLevel()
+int** LevelLoader::LoadLevel(const char* filename)
 {
 	XMLDocument xmlDoc;
 	//creates array of level tiles
@@ -30,7 +30,7 @@ int** LevelLoader::LoadLevel()
 	}
 
 	//load xml file into array
-	if (xmlDoc.LoadFile("TestLevel.xml") == 0)
+	if (xmlDoc.LoadFile(filename) == 0)
 	{
 		std::cout << "loaded xml\n";
 	}

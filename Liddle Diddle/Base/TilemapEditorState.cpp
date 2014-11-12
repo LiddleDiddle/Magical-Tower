@@ -25,7 +25,8 @@ TilemapEditorState::TilemapEditorState(const std::shared_ptr<GameStateManager> &
 void TilemapEditorState::Entered()
 {
 	LevelLoader loader;
-	level = loader.LoadLevel();
+	file = "Level001.xml";
+	level = loader.LoadLevel(file);
 	mousePressed = false;
 	changed = false;
 	numTiles = 3;
@@ -240,7 +241,7 @@ void TilemapEditorState::ProcessInput(Bengine::InputManager _inputManager)
 void TilemapEditorState::SaveXML(int** level)
 {
 	XMLDocument xmlDoc;
-	xmlDoc.LoadFile("TestLevel.xml");
+	xmlDoc.LoadFile(file);
 	XMLNode * pRoot = xmlDoc.FirstChild();
 
 	XMLElement * rowElement = pRoot->FirstChildElement("Row");
@@ -259,7 +260,7 @@ void TilemapEditorState::SaveXML(int** level)
 		w = 0;
 	}
 
-	xmlDoc.SaveFile("TestLevel.xml");
+	xmlDoc.SaveFile(file);
 	std::cout << "Level Saved!";
 	return;
 
