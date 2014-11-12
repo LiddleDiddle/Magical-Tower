@@ -39,7 +39,6 @@ public:
 
 private: 
 	std::shared_ptr<GameStateManager> gameStateManager;
-	int** level;
 
 	b2World* world;
 	Ball* ball;

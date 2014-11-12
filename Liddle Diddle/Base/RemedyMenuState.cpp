@@ -7,7 +7,7 @@
 #include <iostream>
 #include <cmath>
 #include "tinyxml2.h"
-
+#include "GeneralManager.h"
 using namespace tinyxml2;
 
 #define CAMERA TheMainGame::Instance()->_camera
@@ -23,9 +23,7 @@ RemedyMenuState::RemedyMenuState(const std::shared_ptr<GameStateManager> &gameSt
 
 void RemedyMenuState::Entered()
 {
-	Level* level = new Level("Level 1", "Level001.png", "Level001.xml");
-	BuildLevel(level->LoadLevel(level->GetFile()));
-	delete level;
+	BuildLevel(TheGeneralManager::Instance()->_levels[TheGeneralManager::Instance()->currentLevel].LoadLevel());
 }
 
 void RemedyMenuState::Exiting()

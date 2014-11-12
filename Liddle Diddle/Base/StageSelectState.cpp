@@ -5,6 +5,7 @@
 #include <Bengine/ResourceManager.h>
 #include "MainGame.h"
 #include "GeneralManager.h"
+#include "RemedyMenuState.h"
 
 #define CAMERA TheMainGame::Instance()->_camera
 
@@ -79,7 +80,8 @@ void StageSelectState::ProcessInput(Bengine::InputManager inputManager){
 
 	if(TheGeneralManager::Instance()->_players[TheGeneralManager::Instance()->_joinedPlayers[0]].isKeyPressed(SDL_CONTROLLER_BUTTON_A)){
 		TheGeneralManager::Instance()->currentLevel = currentLevel;
-		std::cout << currentLevel << std::endl;
+		std::cout << "Level " << currentLevel << " selected!" <<std::endl;
+		this->gameStateManager->Switch(std::shared_ptr<GameState>(new RemedyMenuState(gameStateManager)));
 	}
 
 	

@@ -17,8 +17,8 @@ Level::~Level(void)
 {
 }
 
-int** Level::LoadLevel(const char* fileName)
+int** Level::LoadLevel()
 {
 	LevelLoader loader;
-	return loader.LoadLevel(fileName);
+	return loader.LoadLevel(xmlFile);
 }

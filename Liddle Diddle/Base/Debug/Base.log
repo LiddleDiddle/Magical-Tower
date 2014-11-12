@@ -1,12 +1,18 @@
-﻿Build started 11/12/2014 9:28:35 AM.
+﻿Build started 11/12/2014 10:59:55 AM.
      1>Project "C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Base\Base.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt StageSelectState.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt MainMenuGameState.cpp RemedyMenuState.cpp StageSelectState.cpp
+         RemedyMenuState.cpp
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\remedymenustate.cpp(60): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+         Compiling...
          StageSelectState.cpp
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(19): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(60): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(66): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(20): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(25): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\zephyr\desktop\magical-tower\liddle diddle\base\stageselectstate.cpp(67): warning C4018: '>' : signed/unsigned mismatch
+         MainMenuGameState.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.exe" /INCREMENTAL /NOLOGO glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib liquidfun.lib Bengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zephyr\Desktop\Magical-Tower\Liddle Diddle\Debug\Game.lib" /MACHINE:X86 Debug\Assignment4GameState.obj
          Debug\Ball.obj
@@ -49,4 +55,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.48
+Time Elapsed 00:00:04.93
